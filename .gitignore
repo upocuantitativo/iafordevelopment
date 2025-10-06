@@ -13,5 +13,6 @@ venv/
 *~
 .idea/
 .vscode/
+.claude/
 *.csv~
 *.xlsx~
