@@ -26,10 +26,36 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             color: white;
             padding: 40px;
             text-align: center;
+            position: relative;
+        }
+
+        .header-logos {
+            position: absolute;
+            top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logos.left {
+            left: 30px;
+        }
+
+        .header-logos.right {
+            right: 30px;
+        }
+
+        .header-logos img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
         }
 
         .header h1 {
@@ -399,6 +425,13 @@
 <body>
     <div class="container">
         <div class="header">
+            <div class="header-logos left">
+                <img src="genero.png" alt="Gender" title="Gender Equality">
+                <img src="pobreza.png" alt="Development" title="Economic Development">
+            </div>
+            <div class="header-logos right">
+                <img src="banco.png" alt="World Bank" title="World Bank Data">
+            </div>
             <h1>🌍 Gender and Economic Development Analysis</h1>
             <p>Comprehensive analysis and policy projection models for development</p>
         </div>
