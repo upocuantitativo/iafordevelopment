@@ -974,40 +974,161 @@
             generateImpactSummary(values);
         }
 
+        // Policy tags with descriptions
+        const policyTags = {
+            "education_girls": "🎓 Eliminate fees, provide scholarships, safe transport, uniforms, and re-entry programs for mothers",
+            "tvet_women": "🔧 Technical/STEAM training for women with pathways to employment",
+            "srh_access": "💊 Modern contraception, comprehensive sexuality education, youth-friendly clinics",
+            "child_marriage_law": "👰 Minimum age 18, civil registration, enforcement and campaigns",
+            "maternal_newborn": "🤰 Prenatal care, skilled birth attendance, emergency obstetric care",
+            "nutrition_women": "🥗 Iron/folic acid, fortification, nutritional counseling",
+            "nutrition_early_child": "🍼 Breastfeeding, complementary feeding programs, malnutrition treatment, water and sanitation",
+            "ncd_prevention": "🏃 Sugar-sweetened beverage tax, labeling, school physical activity, screenings",
+            "alcohol_policy": "🚫 Taxes, marketing/sales restrictions, addiction treatment",
+            "road_safety": "🛣️ Helmets/seatbelts, speed/alcohol control, safe infrastructure",
+            "injury_prevention": "🏥 Home/school/workplace safety, violence prevention",
+            "mental_health": "🧠 Suicide prevention, helplines, primary care with gender focus",
+            "hiv_programs": "💉 PrEP, testing, treatment, sexual violence prevention",
+            "care_infrastructure": "👶 Childcare 0-3, extended day, day centers; equal parental leave",
+            "almp_women": "💼 Job placement, employment subsidies, mentoring, flexible schedules",
+            "formalization_equalpay": "⚖️ Labor inspection, equal pay for equal work",
+            "entrepreneurship_women": "💡 Credit, guarantees, public procurement, incubation",
+            "business_simplification": "📋 Reduce procedures, one-stop shop, digitalization",
+            "legal_reform_WBL": "📜 Inheritance, property, mobility, work, marriage (WBL) reforms",
+            "leadership_quotas": "👩‍💼 Quotas/parity, leadership training for women, political violence prevention",
+            "gender_budgeting": "💰 Gender-responsive budgeting and expenditure tracking",
+            "rural_services": "🚜 Mobile health, rural schools and roads, digital connectivity",
+            "urban_safety": "🌃 Lighting, safe transport, urban SRH services",
+            "teacher_female_recruit": "👩‍🏫 Target 45-55% female teachers, incentives for remote areas"
+        };
+
         function generateRecommendations(values, gdpImpact) {
-            const recommendations = [];
+            const recommendations = new Set();
+            const percentiles = { low: 0.25, mid: 0.50, high: 0.75 };
 
-            if (values.schoolEnrollment < 90) {
-                recommendations.push('📚 <strong>Increase female primary school enrollment:</strong> Expand access to education through infrastructure investment and reducing barriers to entry.');
+            // Calculate thresholds (simplified - using absolute values)
+            const thresholds = {
+                schoolLow: 85,
+                schoolHigh: 110,
+                diseaseLow: 30,
+                diseaseHigh: 55,
+                injuryLow: 6,
+                injuryHigh: 11,
+                fertilityLow: 2.5,
+                fertilityHigh: 4.5,
+                obesityLow: 10,
+                obesityHigh: 25,
+                literacyLow: 0.90,
+                literacyHigh: 1.02
+            };
+
+            // EDUCATION policies
+            if (values.schoolEnrollment < thresholds.schoolLow) {
+                recommendations.add("education_girls");
+                recommendations.add("care_infrastructure");
+            }
+            if (values.literacyParity < thresholds.literacyLow) {
+                recommendations.add("education_girls");
+                recommendations.add("tvet_women");
+                recommendations.add("teacher_female_recruit");
             }
 
-            if (values.diseaseRate > 35) {
-                recommendations.push('⚕️ <strong>Improve healthcare systems:</strong> Invest in disease prevention and treatment programs, particularly for communicable diseases.');
+            // HEALTH - Communicable diseases
+            if (values.diseaseRate > thresholds.diseaseHigh) {
+                recommendations.add("nutrition_early_child");
+                recommendations.add("maternal_newborn");
+                recommendations.add("rural_services");
             }
 
-            if (values.injuryRate > 10) {
-                recommendations.push('🤕 <strong>Enhance safety measures:</strong> Implement programs to reduce injury-related deaths among women, including workplace and road safety.');
+            // HEALTH - Injuries
+            if (values.injuryRate > thresholds.injuryHigh) {
+                recommendations.add("injury_prevention");
+                recommendations.add("road_safety");
             }
 
-            if (values.fertilityRate > 4) {
-                recommendations.push('👶 <strong>Expand family planning services:</strong> Provide access to reproductive health services and education.');
+            // HEALTH - NCDs (obesity)
+            if (values.obesityRate > thresholds.obesityHigh) {
+                recommendations.add("ncd_prevention");
+            }
+            if (values.obesityRate < thresholds.obesityLow) {
+                recommendations.add("nutrition_women");
+                recommendations.add("nutrition_early_child");
             }
 
-            if (values.obesityRate < 8 || values.obesityRate > 25) {
-                recommendations.push('⚖️ <strong>Improve nutrition programs:</strong> Address malnutrition or obesity through targeted health interventions.');
+            // FERTILITY & SRH
+            if (values.fertilityRate > thresholds.fertilityHigh) {
+                recommendations.add("srh_access");
+                recommendations.add("education_girls");
+                recommendations.add("child_marriage_law");
+                recommendations.add("care_infrastructure");
+            }
+            if (values.fertilityRate < thresholds.fertilityLow) {
+                recommendations.add("care_infrastructure");
+                recommendations.add("formalization_equalpay");
             }
 
-            if (values.literacyParity < 0.9) {
-                recommendations.push('📖 <strong>Bridge gender literacy gap:</strong> Implement targeted literacy programs for young women to achieve gender parity.');
+            // LABOR & ECONOMIC policies (based on GDP impact)
+            if (gdpImpact < -1) {
+                recommendations.add("almp_women");
+                recommendations.add("entrepreneurship_women");
+                recommendations.add("business_simplification");
+                recommendations.add("care_infrastructure");
+            }
+            if (gdpImpact > 2) {
+                recommendations.add("gender_budgeting");
+                recommendations.add("legal_reform_WBL");
             }
 
-            if (recommendations.length === 0) {
-                recommendations.push('✅ <strong>Maintain current policies:</strong> Your current indicators suggest strong development trajectory. Continue monitoring and maintaining these levels.');
+            // Cross-cutting governance
+            if (values.schoolEnrollment < thresholds.schoolLow || values.literacyParity < thresholds.literacyLow) {
+                recommendations.add("legal_reform_WBL");
+                recommendations.add("leadership_quotas");
             }
 
-            document.getElementById('recommendations').innerHTML = recommendations.map(r =>
-                `<p style="margin-bottom: 12px; padding-left: 10px; border-left: 3px solid #4facfe;">${r}</p>`
-            ).join('');
+            // Convert to array and format
+            const recArray = Array.from(recommendations);
+
+            if (recArray.length === 0) {
+                document.getElementById('recommendations').innerHTML =
+                    '<p style="color: #28a745;">✅ <strong>Maintain current policies:</strong> Indicators suggest strong development trajectory. Continue monitoring and scaling successful interventions.</p>';
+                return;
+            }
+
+            // Group by category
+            const grouped = {
+                'Education & Skills': [],
+                'Health & Nutrition': [],
+                'Economic Empowerment': [],
+                'Governance & Rights': []
+            };
+
+            recArray.forEach(tag => {
+                const policy = policyTags[tag];
+                if (tag.includes('education') || tag.includes('tvet') || tag.includes('teacher') || tag.includes('literacy')) {
+                    grouped['Education & Skills'].push(policy);
+                } else if (tag.includes('health') || tag.includes('nutrition') || tag.includes('maternal') || tag.includes('srh') ||
+                          tag.includes('ncd') || tag.includes('injury') || tag.includes('road') || tag.includes('alcohol') ||
+                          tag.includes('mental') || tag.includes('hiv')) {
+                    grouped['Health & Nutrition'].push(policy);
+                } else if (tag.includes('almp') || tag.includes('entrepreneurship') || tag.includes('business') ||
+                          tag.includes('formalization') || tag.includes('care')) {
+                    grouped['Economic Empowerment'].push(policy);
+                } else {
+                    grouped['Governance & Rights'].push(policy);
+                }
+            });
+
+            let html = '';
+            Object.keys(grouped).forEach(category => {
+                if (grouped[category].length > 0) {
+                    html += `<h5 style="color: #4facfe; margin-top: 15px; margin-bottom: 8px; font-size: 0.95em;">${category}</h5>`;
+                    grouped[category].forEach(policy => {
+                        html += `<p style="margin-bottom: 10px; padding-left: 10px; border-left: 3px solid #4facfe; font-size: 0.9em; line-height: 1.5;">${policy}</p>`;
+                    });
+                }
+            });
+
+            document.getElementById('recommendations').innerHTML = html;
         }
 
         function generateImpactSummary(values) {
