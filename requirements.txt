@@ -1,0 +1,74 @@
+# =====================================================================
+# REQUIREMENTS.TXT - Dependencias del Proyecto
+# Análisis Avanzado: Indicadores de Género y Desarrollo Económico
+# =====================================================================
+
+# === LIBRERÍAS BÁSICAS (ESENCIALES) ===
+pandas>=1.5.0,<3.0.0
+numpy>=1.21.0,<2.0.0
+matplotlib>=3.5.0,<4.0.0
+seaborn>=0.11.0,<1.0.0
+
+# === ANÁLISIS DE DATOS ===
+openpyxl>=3.0.0,<4.0.0          # Lectura de archivos Excel
+scipy>=1.8.0,<2.0.0             # Estadística y análisis científico
+statsmodels>=0.13.0,<1.0.0      # Modelos estadísticos avanzados
+
+# === VISUALIZACIÓN INTERACTIVA ===
+plotly>=5.10.0,<6.0.0           # Gráficos interactivos
+kaleido>=0.2.1,<1.0.0           # Exportación de gráficos Plotly
+
+# === MACHINE LEARNING ===
+scikit-learn>=1.1.0,<2.0.0      # Algoritmos de ML
+joblib>=1.1.0,<2.0.0            # Paralelización y caching
+
+# === UTILIDADES ===
+tqdm>=4.64.0,<5.0.0             # Barras de progreso
+
+# === OPCIONAL (PUEDE FALLAR EN ALGUNOS SISTEMAS) ===
+xgboost>=1.6.0,<3.0.0           # Gradient boosting avanzado
+
+# =====================================================================
+# INSTALACIÓN
+# =====================================================================
+# 
+# Método 1 (Recomendado - Automático):
+# python instalar_dependencias.py
+#
+# Método 2 (Manual):
+# pip install -r requirements.txt
+#
+# Método 3 (Con conda):
+# conda install --file requirements.txt
+# 
+# =====================================================================
+# NOTAS DE COMPATIBILIDAD
+# =====================================================================
+#
+# Python: Requiere 3.8 o superior
+# 
+# Sistemas operativos soportados:
+# - Windows 10/11
+# - macOS 10.15+
+# - Ubuntu 18.04+
+# - Otras distribuciones Linux recientes
+#
+# Problemas conocidos:
+# - XGBoost puede fallar en sistemas ARM (Mac M1/M2)
+# - Kaleido puede requerir dependencias adicionales en Linux
+# - En Windows, puede requerir Microsoft Visual C++
+#
+# =====================================================================
+# VERSIONES ALTERNATIVAS (SI HAY PROBLEMAS)
+# =====================================================================
+#
+# Si la instalación falla, intenta estas versiones más conservadoras:
+# pandas==1.5.3
+# numpy==1.21.6
+# matplotlib==3.5.3
+# seaborn==0.11.2
+# plotly==5.15.0
+# scikit-learn==1.1.3
+# scipy==1.8.1
+#
+# =====================================================================

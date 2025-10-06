@@ -1,0 +1,15 @@
+# Instrucciones Rápidas
+
+## Archivos de Datos Necesarios:
+Coloca estos archivos en la carpeta principal:
+- DATA_GHAB.xlsx (formato Excel)
+- paste.txt (formato texto)
+
+## Para Ejecutar el Análisis:
+python ejecutar.py
+
+## Resultados:
+- Dashboards HTML interactivos en: resultados/dashboards/
+- Reportes CSV/TXT en: resultados/reportes/
+
+¡Los archivos HTML se abren en tu navegador web!
