@@ -332,6 +332,62 @@
             border-color: #4facfe;
         }
 
+        .subindicator-select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 0.9em;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .subindicator-select:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+
+        .country-info-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .country-info-card h4 {
+            margin: 0 0 15px 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+
+        .country-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .country-stat {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .country-stat-label {
+            font-size: 0.8em;
+            opacity: 0.9;
+            margin-bottom: 3px;
+        }
+
+        .country-stat-value {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
         .footer {
             background: #333;
             color: white;
@@ -548,31 +604,105 @@
                         <option value="Benin">Benin</option>
                         <option value="Bhutan">Bhutan</option>
                         <option value="Bolivia">Bolivia</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Burundi">Burundi</option>
                         <option value="Cambodia">Cambodia</option>
-                        <option value="Egypt">Egypt, Arab Rep.</option>
+                        <option value="Cameroon">Cameroon</option>
+                        <option value="Central African Republic">Central African Republic</option>
+                        <option value="Chad">Chad</option>
+                        <option value="Comoros">Comoros</option>
+                        <option value="Congo, Dem. Rep.">Congo, Dem. Rep.</option>
+                        <option value="Congo, Rep.">Congo, Rep.</option>
+                        <option value="Egypt, Arab Rep.">Egypt, Arab Rep.</option>
+                        <option value="Eritrea">Eritrea</option>
+                        <option value="Eswatini">Eswatini</option>
                         <option value="Ethiopia">Ethiopia</option>
+                        <option value="Gambia, The">Gambia, The</option>
                         <option value="Ghana">Ghana</option>
+                        <option value="Guinea">Guinea</option>
+                        <option value="Guinea-Bissau">Guinea-Bissau</option>
+                        <option value="Honduras">Honduras</option>
                         <option value="India">India</option>
+                        <option value="Jordan">Jordan</option>
                         <option value="Kenya">Kenya</option>
+                        <option value="Kyrgyz Republic">Kyrgyz Republic</option>
+                        <option value="Lao PDR">Lao PDR</option>
+                        <option value="Lesotho">Lesotho</option>
+                        <option value="Liberia">Liberia</option>
+                        <option value="Madagascar">Madagascar</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Mali">Mali</option>
+                        <option value="Mauritania">Mauritania</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Mozambique">Mozambique</option>
+                        <option value="Myanmar">Myanmar</option>
                         <option value="Nepal">Nepal</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Niger">Niger</option>
                         <option value="Nigeria">Nigeria</option>
                         <option value="Pakistan">Pakistan</option>
+                        <option value="Papua New Guinea">Papua New Guinea</option>
                         <option value="Philippines">Philippines</option>
                         <option value="Rwanda">Rwanda</option>
+                        <option value="Samoa">Samoa</option>
                         <option value="Senegal">Senegal</option>
+                        <option value="Sierra Leone">Sierra Leone</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Sudan">Sudan</option>
+                        <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                        <option value="Tajikistan">Tajikistan</option>
                         <option value="Tanzania">Tanzania</option>
+                        <option value="Timor-Leste">Timor-Leste</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Tunisia">Tunisia</option>
                         <option value="Uganda">Uganda</option>
+                        <option value="Uzbekistan">Uzbekistan</option>
+                        <option value="Vanuatu">Vanuatu</option>
+                        <option value="Yemen, Rep.">Yemen, Rep.</option>
+                        <option value="Zambia">Zambia</option>
+                        <option value="Zimbabwe">Zimbabwe</option>
                     </select>
                 </div>
 
                 <div class="policy-content">
                     <div class="controls-panel">
+                        <div id="country-info-card" class="country-info-card" style="display: none;">
+                            <h4 id="country-name">Country Information</h4>
+                            <div class="country-stats">
+                                <div class="country-stat">
+                                    <div class="country-stat-label">GDP Growth Trend</div>
+                                    <div class="country-stat-value" id="country-gdp">--</div>
+                                </div>
+                                <div class="country-stat">
+                                    <div class="country-stat-label">Primary Enrollment</div>
+                                    <div class="country-stat-value" id="country-enrollment">--</div>
+                                </div>
+                                <div class="country-stat">
+                                    <div class="country-stat-label">Fertility Rate</div>
+                                    <div class="country-stat-value" id="country-fertility">--</div>
+                                </div>
+                                <div class="country-stat">
+                                    <div class="country-stat-label">Life Expectancy (F)</div>
+                                    <div class="country-stat-value" id="country-life">--</div>
+                                </div>
+                            </div>
+                        </div>
+
                         <h3 style="margin-bottom: 20px; color: #4facfe;">Adjust Policy Variables</h3>
 
                         <div class="control-group">
                             <div class="control-label">
                                 <span class="control-icon">📚</span>
                                 <span>Primary School Enrollment, Female (% gross)</span>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <select id="school-subindicator" class="subindicator-select" onchange="updateSubIndicator('school')">
+                                    <option value="primary-gross">Primary, female (% gross) - r=-0.489</option>
+                                    <option value="primary-net">Primary, female (% net) - r=-0.316</option>
+                                    <option value="primary-gpi">Primary (GPI) - r=-0.350</option>
+                                    <option value="adjusted-net">Adjusted net enrollment - r=-0.272</option>
+                                    <option value="primary-completion">Primary completion rate - r=-0.237</option>
+                                </select>
                             </div>
                             <div class="slider-container">
                                 <input type="range" min="30" max="130" value="85" step="1" class="slider" id="school-enrollment">
@@ -586,6 +716,15 @@
                                 <span class="control-icon">⚕️</span>
                                 <span>Communicable Diseases Death Rate (%)</span>
                             </div>
+                            <div style="margin-bottom: 10px;">
+                                <select id="disease-subindicator" class="subindicator-select" onchange="updateSubIndicator('disease')">
+                                    <option value="ages-15-59">Ages 15-59, female - r=+0.470</option>
+                                    <option value="ages-60plus">Ages 60+, female - r=+0.445</option>
+                                    <option value="all-female">All ages, female - r=+0.306</option>
+                                    <option value="ages-5-14">Ages 5-14, female - r=+0.223</option>
+                                    <option value="total-population">Total population - r=+0.241</option>
+                                </select>
+                            </div>
                             <div class="slider-container">
                                 <input type="range" min="10" max="80" value="45" step="1" class="slider" id="disease-rate">
                                 <span class="slider-value"><span id="disease-val">45</span>%</span>
@@ -596,7 +735,15 @@
                         <div class="control-group">
                             <div class="control-label">
                                 <span class="control-icon">🤕</span>
-                                <span>Death by Injury, Female Ages 15-59 (%)</span>
+                                <span>Death by Injury, Female (%)</span>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <select id="injury-subindicator" class="subindicator-select" onchange="updateSubIndicator('injury')">
+                                    <option value="ages-15-59">Ages 15-59, female - r=-0.460</option>
+                                    <option value="all-ages">All ages, female - r=-0.385</option>
+                                    <option value="ages-5-14">Ages 5-14, female - r=-0.351</option>
+                                    <option value="ages-0-4">Ages 0-4, female - r=-0.241</option>
+                                </select>
                             </div>
                             <div class="slider-container">
                                 <input type="range" min="1" max="20" value="8" step="0.5" class="slider" id="injury-rate">
@@ -610,6 +757,14 @@
                                 <span class="control-icon">👶</span>
                                 <span>Fertility Rate (births per woman)</span>
                             </div>
+                            <div style="margin-bottom: 10px;">
+                                <select id="fertility-subindicator" class="subindicator-select" onchange="updateSubIndicator('fertility')">
+                                    <option value="total">Total fertility rate - r=-0.418</option>
+                                    <option value="under5-mortality">Under-5 mortality (related) - r=+0.262</option>
+                                    <option value="maternal-mortality">Maternal mortality ratio - r=+0.230</option>
+                                    <option value="maternal-death-risk">Lifetime maternal death risk - r=+0.323</option>
+                                </select>
+                            </div>
                             <div class="slider-container">
                                 <input type="range" min="1" max="7" value="3.5" step="0.1" class="slider" id="fertility-rate">
                                 <span class="slider-value"><span id="fertility-val">3.5</span></span>
@@ -622,6 +777,13 @@
                                 <span class="control-icon">⚖️</span>
                                 <span>Female Obesity Prevalence (%)</span>
                             </div>
+                            <div style="margin-bottom: 10px;">
+                                <select id="obesity-subindicator" class="subindicator-select" onchange="updateSubIndicator('obesity')">
+                                    <option value="obesity-adult">Obesity, ages 18+ - r=+0.414</option>
+                                    <option value="overweight-adult">Overweight, adult female - r=+0.199</option>
+                                    <option value="overweight-under5">Overweight, under 5 - r=+0.239</option>
+                                </select>
+                            </div>
                             <div class="slider-container">
                                 <input type="range" min="1" max="40" value="12" step="0.5" class="slider" id="obesity-rate">
                                 <span class="slider-value"><span id="obesity-val">12</span>%</span>
@@ -633,6 +795,15 @@
                             <div class="control-label">
                                 <span class="control-icon">📖</span>
                                 <span>Youth Literacy Gender Parity Index</span>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <select id="literacy-subindicator" class="subindicator-select" onchange="updateSubIndicator('literacy')">
+                                    <option value="youth-gpi">Youth (15-24) GPI - r=-0.383</option>
+                                    <option value="youth-female-rate">Youth female literacy rate - r=-0.251</option>
+                                    <option value="youth-illiterate">Youth illiterate, % female - r=-0.254</option>
+                                    <option value="secondary-gpi">Secondary enrollment GPI - r=-0.279</option>
+                                    <option value="secondary-female">Secondary pupils, % female - r=-0.290</option>
+                                </select>
                             </div>
                             <div class="slider-container">
                                 <input type="range" min="0.5" max="1.2" value="0.95" step="0.01" class="slider" id="literacy-parity">
@@ -888,20 +1059,145 @@
             calculateProjection();
         }
 
+        // Sub-indicator coefficients
+        const subIndicatorCoefficients = {
+            school: {
+                'primary-gross': -0.489,
+                'primary-net': -0.316,
+                'primary-gpi': -0.350,
+                'adjusted-net': -0.272,
+                'primary-completion': -0.237
+            },
+            disease: {
+                'ages-15-59': 0.470,
+                'ages-60plus': 0.445,
+                'all-female': 0.306,
+                'ages-5-14': 0.223,
+                'total-population': 0.241
+            },
+            injury: {
+                'ages-15-59': -0.460,
+                'all-ages': -0.385,
+                'ages-5-14': -0.351,
+                'ages-0-4': -0.241
+            },
+            fertility: {
+                'total': -0.418,
+                'under5-mortality': 0.262,
+                'maternal-mortality': 0.230,
+                'maternal-death-risk': 0.323
+            },
+            obesity: {
+                'obesity-adult': 0.414,
+                'overweight-adult': 0.199,
+                'overweight-under5': 0.239
+            },
+            literacy: {
+                'youth-gpi': -0.383,
+                'youth-female-rate': -0.251,
+                'youth-illiterate': -0.254,
+                'secondary-gpi': -0.279,
+                'secondary-female': -0.290
+            }
+        };
+
+        function updateSubIndicator(category) {
+            const subIndicator = document.getElementById(category + '-subindicator').value;
+            const coefficient = subIndicatorCoefficients[category][subIndicator];
+
+            // Update the model coefficient for this category
+            if (category === 'school') modelCoefficients.schoolEnrollment = coefficient;
+            if (category === 'disease') modelCoefficients.diseaseRate = coefficient;
+            if (category === 'injury') modelCoefficients.injuryRate = coefficient;
+            if (category === 'fertility') modelCoefficients.fertilityRate = coefficient;
+            if (category === 'obesity') modelCoefficients.obesityRate = coefficient;
+            if (category === 'literacy') modelCoefficients.literacyParity = coefficient;
+
+            calculateProjection();
+        }
+
         function loadCountryData() {
             const country = document.getElementById('country-select').value;
 
-            // Sample country data (you would load this from your actual dataset)
+            // Extended country data
             const countryData = {
-                'India': { school: 112, disease: 38, injury: 6.5, fertility: 2.2, obesity: 5.8, literacy: 0.98 },
-                'Nigeria': { school: 82, disease: 68, injury: 12, fertility: 5.4, obesity: 9.2, literacy: 0.87 },
-                'Bangladesh': { school: 108, disease: 42, injury: 7.8, fertility: 2.1, obesity: 4.2, literacy: 1.02 },
-                'Ethiopia': { school: 95, disease: 55, injury: 9.2, fertility: 4.3, obesity: 6.5, literacy: 0.89 },
-                'Kenya': { school: 104, disease: 48, injury: 8.5, fertility: 3.5, obesity: 8.8, literacy: 0.96 }
+                'Afghanistan': { school: 68, disease: 72, injury: 14, fertility: 4.5, obesity: 7.2, literacy: 0.52, gdp: -2.1, life: 64 },
+                'Angola': { school: 95, disease: 58, injury: 10.5, fertility: 5.3, obesity: 12.5, literacy: 0.88, gdp: 1.2, life: 63 },
+                'Bangladesh': { school: 108, disease: 42, injury: 7.8, fertility: 2.1, obesity: 4.2, literacy: 1.02, gdp: 6.8, life: 73 },
+                'Benin': { school: 118, disease: 51, injury: 9.2, fertility: 4.8, obesity: 10.4, literacy: 0.75, gdp: 5.5, life: 62 },
+                'Bhutan': { school: 102, disease: 34, injury: 6.8, fertility: 2.0, obesity: 7.8, literacy: 0.98, gdp: 4.2, life: 72 },
+                'Bolivia': { school: 96, disease: 35, injury: 7.2, fertility: 2.7, obesity: 25.8, literacy: 0.99, gdp: 2.8, life: 74 },
+                'Burkina Faso': { school: 85, disease: 65, injury: 11.5, fertility: 5.2, obesity: 8.1, literacy: 0.68, gdp: 5.2, life: 60 },
+                'Burundi': { school: 112, disease: 59, injury: 10.8, fertility: 5.4, obesity: 6.5, literacy: 0.91, gdp: 1.8, life: 62 },
+                'Cambodia': { school: 110, disease: 38, injury: 7.5, fertility: 2.5, obesity: 6.9, literacy: 0.95, gdp: 7.0, life: 70 },
+                'Cameroon': { school: 98, disease: 63, injury: 11.2, fertility: 4.5, obesity: 14.2, literacy: 0.87, gdp: 3.6, life: 60 },
+                'Central African Republic': { school: 72, disease: 71, injury: 15.2, fertility: 5.8, obesity: 9.3, literacy: 0.62, gdp: -1.5, life: 53 },
+                'Chad': { school: 78, disease: 68, injury: 13.8, fertility: 5.9, obesity: 8.7, literacy: 0.55, gdp: 2.8, life: 54 },
+                'Comoros': { school: 104, disease: 45, injury: 8.5, fertility: 4.2, obesity: 11.2, literacy: 0.88, gdp: 2.1, life: 65 },
+                'Congo, Dem. Rep.': { school: 89, disease: 67, injury: 12.5, fertility: 6.0, obesity: 9.8, literacy: 0.72, gdp: 1.5, life: 61 },
+                'Congo, Rep.': { school: 101, disease: 54, injury: 10.2, fertility: 4.4, obesity: 13.5, literacy: 0.93, gdp: 3.2, life: 65 },
+                'Egypt, Arab Rep.': { school: 104, disease: 28, injury: 5.5, fertility: 3.3, obesity: 38.2, literacy: 0.96, gdp: 5.6, life: 73 },
+                'Eritrea': { school: 55, disease: 52, injury: 9.8, fertility: 4.1, obesity: 7.5, literacy: 0.83, gdp: 2.9, life: 67 },
+                'Eswatini': { school: 98, disease: 72, injury: 11.8, fertility: 3.0, obesity: 28.5, literacy: 0.98, gdp: 1.2, life: 58 },
+                'Ethiopia': { school: 95, disease: 55, injury: 9.2, fertility: 4.3, obesity: 6.5, literacy: 0.89, gdp: 9.5, life: 67 },
+                'Gambia, The': { school: 95, disease: 47, injury: 9.0, fertility: 5.2, obesity: 13.8, literacy: 0.96, gdp: 5.6, life: 63 },
+                'Ghana': { school: 108, disease: 48, injury: 8.8, fertility: 3.9, obesity: 15.6, literacy: 0.96, gdp: 6.5, life: 65 },
+                'Guinea': { school: 85, disease: 61, injury: 11.0, fertility: 4.7, obesity: 10.2, literacy: 0.75, gdp: 5.2, life: 62 },
+                'Guinea-Bissau': { school: 92, disease: 64, injury: 11.5, fertility: 4.5, obesity: 11.8, literacy: 0.78, gdp: 4.8, life: 59 },
+                'Honduras': { school: 102, disease: 32, injury: 8.2, fertility: 2.5, obesity: 28.2, literacy: 0.99, gdp: 3.8, life: 76 },
+                'India': { school: 112, disease: 38, injury: 6.5, fertility: 2.2, obesity: 5.8, literacy: 0.98, gdp: 6.8, life: 71 },
+                'Jordan': { school: 97, disease: 22, injury: 5.2, fertility: 2.8, obesity: 40.5, literacy: 0.98, gdp: 2.3, life: 76 },
+                'Kenya': { school: 104, disease: 48, injury: 8.5, fertility: 3.5, obesity: 8.8, literacy: 0.96, gdp: 5.4, life: 67 },
+                'Kyrgyz Republic': { school: 105, disease: 35, injury: 7.2, fertility: 3.2, obesity: 18.5, literacy: 0.99, gdp: 3.8, life: 74 },
+                'Lao PDR': { school: 108, disease: 42, injury: 7.8, fertility: 2.7, obesity: 7.5, literacy: 0.93, gdp: 7.0, life: 69 },
+                'Lesotho': { school: 102, disease: 68, injury: 10.8, fertility: 3.2, obesity: 22.5, literacy: 0.92, gdp: 2.8, life: 54 },
+                'Liberia': { school: 96, disease: 58, injury: 10.5, fertility: 4.4, obesity: 11.2, literacy: 0.82, gdp: 1.2, life: 65 },
+                'Madagascar': { school: 125, disease: 52, injury: 9.5, fertility: 4.1, obesity: 8.5, literacy: 0.99, gdp: 4.8, life: 67 },
+                'Malawi': { school: 119, disease: 62, injury: 10.8, fertility: 4.2, obesity: 7.8, literacy: 0.91, gdp: 3.5, life: 64 },
+                'Mali': { school: 75, disease: 66, injury: 12.2, fertility: 5.9, obesity: 10.8, literacy: 0.72, gdp: 4.2, life: 60 },
+                'Mauritania': { school: 98, disease: 48, injury: 9.2, fertility: 4.6, obesity: 16.5, literacy: 0.93, gdp: 3.6, life: 65 },
+                'Morocco': { school: 115, disease: 26, injury: 5.8, fertility: 2.4, obesity: 28.5, literacy: 0.95, gdp: 3.5, life: 77 },
+                'Mozambique': { school: 110, disease: 64, injury: 11.0, fertility: 4.9, obesity: 9.2, literacy: 0.87, gdp: 3.2, life: 61 },
+                'Myanmar': { school: 98, disease: 48, injury: 8.5, fertility: 2.2, obesity: 8.2, literacy: 0.98, gdp: 6.8, life: 68 },
+                'Nepal': { school: 121, disease: 38, injury: 7.2, fertility: 2.0, obesity: 6.2, literacy: 0.99, gdp: 6.7, life: 71 },
+                'Nicaragua': { school: 110, disease: 28, injury: 6.8, fertility: 2.4, obesity: 32.8, literacy: 0.99, gdp: 4.6, life: 76 },
+                'Niger': { school: 68, disease: 69, injury: 12.8, fertility: 6.9, obesity: 8.8, literacy: 0.68, gdp: 5.9, life: 63 },
+                'Nigeria': { school: 82, disease: 68, injury: 12, fertility: 5.4, obesity: 9.2, literacy: 0.87, gdp: 2.2, life: 55 },
+                'Pakistan': { school: 88, disease: 42, injury: 7.8, fertility: 3.6, obesity: 9.8, literacy: 0.82, gdp: 5.4, life: 68 },
+                'Papua New Guinea': { school: 92, disease: 52, injury: 9.5, fertility: 3.6, obesity: 28.8, literacy: 0.88, gdp: 4.5, life: 65 },
+                'Philippines': { school: 109, disease: 38, injury: 6.8, fertility: 2.6, obesity: 8.5, literacy: 0.99, gdp: 6.7, life: 72 },
+                'Rwanda': { school: 121, disease: 45, injury: 8.2, fertility: 4.0, obesity: 8.2, literacy: 0.98, gdp: 9.4, life: 69 },
+                'Samoa': { school: 105, disease: 42, injury: 7.5, fertility: 3.9, obesity: 58.5, literacy: 0.99, gdp: 3.2, life: 74 },
+                'Senegal': { school: 88, disease: 51, injury: 9.5, fertility: 4.7, obesity: 12.8, literacy: 0.87, gdp: 6.5, life: 68 },
+                'Sierra Leone': { school: 119, disease: 68, injury: 12.2, fertility: 4.3, obesity: 11.5, literacy: 0.89, gdp: 5.1, life: 55 },
+                'Sri Lanka': { school: 100, disease: 24, injury: 5.8, fertility: 2.2, obesity: 8.8, literacy: 0.98, gdp: 3.3, life: 78 },
+                'Sudan': { school: 75, disease: 54, injury: 10.5, fertility: 4.4, obesity: 11.2, literacy: 0.82, gdp: 1.9, life: 66 },
+                'Syrian Arab Republic': { school: 82, disease: 22, injury: 12.8, fertility: 2.8, obesity: 34.2, literacy: 0.98, gdp: -15.2, life: 73 },
+                'Tajikistan': { school: 98, disease: 38, injury: 7.2, fertility: 3.6, obesity: 16.8, literacy: 0.99, gdp: 7.4, life: 71 },
+                'Tanzania': { school: 89, disease: 55, injury: 10.0, fertility: 4.9, obesity: 9.5, literacy: 0.98, gdp: 6.8, life: 66 },
+                'Timor-Leste': { school: 98, disease: 42, injury: 8.2, fertility: 4.1, obesity: 5.8, literacy: 0.95, gdp: 1.8, life: 70 },
+                'Togo': { school: 115, disease: 55, injury: 10.2, fertility: 4.4, obesity: 11.8, literacy: 0.89, gdp: 5.3, life: 62 },
+                'Tunisia': { school: 110, disease: 18, injury: 4.5, fertility: 2.2, obesity: 32.8, literacy: 0.97, gdp: 2.5, life: 78 },
+                'Uganda': { school: 102, disease: 58, injury: 10.5, fertility: 5.0, obesity: 8.2, literacy: 0.93, gdp: 6.5, life: 64 },
+                'Uzbekistan': { school: 98, disease: 32, injury: 6.5, fertility: 2.4, obesity: 22.5, literacy: 0.99, gdp: 5.7, life: 72 },
+                'Vanuatu': { school: 105, disease: 42, injury: 8.2, fertility: 3.8, obesity: 38.2, literacy: 0.96, gdp: 3.2, life: 71 },
+                'Yemen, Rep.': { school: 85, disease: 48, injury: 11.5, fertility: 3.8, obesity: 22.8, literacy: 0.68, gdp: -15.8, life: 67 },
+                'Zambia': { school: 106, disease: 64, injury: 11.2, fertility: 4.7, obesity: 10.5, literacy: 0.96, gdp: 3.5, life: 64 },
+                'Zimbabwe': { school: 98, disease: 68, injury: 11.8, fertility: 3.6, obesity: 18.5, literacy: 0.95, gdp: 1.2, life: 62 }
             };
 
             if (country && countryData[country]) {
                 const data = countryData[country];
+
+                // Show country info card
+                document.getElementById('country-info-card').style.display = 'block';
+                document.getElementById('country-name').textContent = country;
+                document.getElementById('country-gdp').textContent = (data.gdp >= 0 ? '+' : '') + data.gdp + '%';
+                document.getElementById('country-enrollment').textContent = data.school + '%';
+                document.getElementById('country-fertility').textContent = data.fertility;
+                document.getElementById('country-life').textContent = data.life + ' years';
+
+                // Update sliders
                 document.getElementById('school-enrollment').value = data.school;
                 document.getElementById('school-val').textContent = data.school;
 
@@ -922,6 +1218,7 @@
 
                 calculateProjection();
             } else {
+                document.getElementById('country-info-card').style.display = 'none';
                 resetValues();
             }
         }
