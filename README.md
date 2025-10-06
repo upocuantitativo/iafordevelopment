@@ -104,6 +104,20 @@ aipobreza/
 - **Gender Equality**: Youth literacy gender parity is a key predictor
 - **Country Clusters**: Two distinct development patterns identified
 
+## 📚 Data Sources
+
+All country data is sourced from:
+- **World Bank Open Data** (2023-2024 latest indicators)
+- **UN Population Division** (World Population Prospects 2024)
+- **UNESCO Institute for Statistics** (Education data)
+
+See [DATA_SOURCES.md](DATA_SOURCES.md) for complete indicator codes, validation process, and update schedule.
+
+### Recent Data Updates (October 2024)
+- **Sudan**: Updated fertility (4.32), GDP growth (-13.5%), and life expectancy (70 years)
+- All data verified against World Bank official indicators
+- Conflict-affected countries may have data gaps (noted in documentation)
+
 ## 🛠️ Technical Stack
 
 - Python for data analysis and ML models
