@@ -410,6 +410,9 @@
             <div class="tab" onclick="switchTab(1)">
                 🎯 Gender and Development Policy Projection Models
             </div>
+            <div class="tab" onclick="switchTab(2)">
+                ⚙️ Regional Configuration
+            </div>
         </div>
 
         <!-- Tab 1: Analysis Results -->
@@ -846,6 +849,145 @@
                             <div id="impact-summary" style="font-size: 0.9em; color: #666;">
                                 <!-- Will be filled dynamically -->
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Regional Configuration -->
+        <div class="tab-content" id="tab-2">
+            <div class="section">
+                <h2>⚙️ Regional Configuration</h2>
+                <p style="color: #666; margin-bottom: 30px;">
+                    Create custom regional models by uploading data or entering values manually. Your custom regions will be saved locally and appear in the country selector.
+                </p>
+
+                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <!-- CSV Upload Section -->
+                    <div class="card" style="background: #f8f9fa;">
+                        <h3>📁 Upload CSV Data</h3>
+                        <p style="margin-bottom: 20px;">Upload a CSV file with your regional data following the format below:</p>
+
+                        <div style="background: #e9ecef; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-family: monospace; font-size: 0.85em; overflow-x: auto;">
+                            <strong>Required CSV Format:</strong><br>
+                            region_name,school,disease,injury,fertility,obesity,literacy,gdp,life<br>
+                            "My Region",95,45,8.5,3.2,12.5,0.95,4.5,68
+                        </div>
+
+                        <div style="background: #fff3cd; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-size: 0.9em;">
+                            <strong>📋 Field Descriptions:</strong><br>
+                            • <strong>region_name</strong>: Name of your region<br>
+                            • <strong>school</strong>: Primary enrollment, female (30-130%)<br>
+                            • <strong>disease</strong>: Communicable diseases rate (10-80%)<br>
+                            • <strong>injury</strong>: Death by injury, female (1-20%)<br>
+                            • <strong>fertility</strong>: Fertility rate (1-7 births/woman)<br>
+                            • <strong>obesity</strong>: Female obesity prevalence (1-40%)<br>
+                            • <strong>literacy</strong>: Youth literacy GPI (0.5-1.2)<br>
+                            • <strong>gdp</strong>: GDP growth trend (-20 to +15%)<br>
+                            • <strong>life</strong>: Life expectancy female (50-85 years)
+                        </div>
+
+                        <input type="file" id="csv-upload" accept=".csv" style="display: none;" onchange="handleCSVUpload(event)">
+                        <button class="btn" onclick="document.getElementById('csv-upload').click()" style="width: 100%; margin-bottom: 10px;">
+                            📤 Choose CSV File
+                        </button>
+                        <a href="example_region.csv" download class="btn" style="width: 100%; text-align: center; display: block; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); margin-bottom: 10px; text-decoration: none;">
+                            📥 Download Example CSV
+                        </a>
+                        <div id="csv-status" style="margin-top: 10px; padding: 10px; border-radius: 6px; display: none;"></div>
+                    </div>
+
+                    <!-- Manual Entry Section -->
+                    <div class="card" style="background: #f8f9fa;">
+                        <h3>✍️ Manual Data Entry</h3>
+                        <p style="margin-bottom: 20px;">Enter your regional data manually:</p>
+
+                        <div style="max-height: 500px; overflow-y: auto; padding-right: 10px;">
+                            <div class="control-group" style="margin-bottom: 15px;">
+                                <label style="font-weight: 600; margin-bottom: 5px; display: block;">Region Name *</label>
+                                <input type="text" id="manual-region-name" placeholder="e.g., My Custom Region"
+                                    style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1em;">
+                            </div>
+
+                            <div class="control-group" style="margin-bottom: 15px;">
+                                <label style="font-weight: 600; margin-bottom: 5px; display: block;">
+                                    📚 Primary Enrollment, Female (%) *
+                                </label>
+                                <input type="number" id="manual-school" min="30" max="130" step="1" value="95"
+                                    style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1em;">
+                            </div>
+
+                            <div class="control-group" style="margin-bottom: 15px;">
+                                <label style="font-weight: 600; margin-bottom: 5px; display: block;">
+                                    ⚕️ Communicable Diseases Rate (%) *
+                                </label>
+                                <input type="number" id="manual-disease" min="10" max="80" step="1" value="45"
+                                    style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1em;">
+                            </div>
+
+                            <div class="control-group" style="margin-bottom: 15px;">
+                                <label style="font-weight: 600; margin-bottom: 5px; display: block;">
+                                    🤕 Death by Injury, Female (%) *
+                                </label>
+                                <input type="number" id="manual-injury" min="1" max="20" step="0.5" value="8"
+                                    style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1em;">
+                            </div>
+
+                            <div class="control-group" style="margin-bottom: 15px;">
+                                <label style="font-weight: 600; margin-bottom: 5px; display: block;">
+                                    👶 Fertility Rate (births/woman) *
+                                </label>
+                                <input type="number" id="manual-fertility" min="1" max="7" step="0.1" value="3.5"
+                                    style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1em;">
+                            </div>
+
+                            <div class="control-group" style="margin-bottom: 15px;">
+                                <label style="font-weight: 600; margin-bottom: 5px; display: block;">
+                                    ⚖️ Female Obesity Prevalence (%) *
+                                </label>
+                                <input type="number" id="manual-obesity" min="1" max="40" step="0.5" value="12"
+                                    style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1em;">
+                            </div>
+
+                            <div class="control-group" style="margin-bottom: 15px;">
+                                <label style="font-weight: 600; margin-bottom: 5px; display: block;">
+                                    📖 Youth Literacy GPI *
+                                </label>
+                                <input type="number" id="manual-literacy" min="0.5" max="1.2" step="0.01" value="0.95"
+                                    style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1em;">
+                            </div>
+
+                            <div class="control-group" style="margin-bottom: 15px;">
+                                <label style="font-weight: 600; margin-bottom: 5px; display: block;">
+                                    📈 GDP Growth Trend (%) *
+                                </label>
+                                <input type="number" id="manual-gdp" min="-20" max="15" step="0.1" value="4.5"
+                                    style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1em;">
+                            </div>
+
+                            <div class="control-group" style="margin-bottom: 20px;">
+                                <label style="font-weight: 600; margin-bottom: 5px; display: block;">
+                                    💚 Life Expectancy, Female (years) *
+                                </label>
+                                <input type="number" id="manual-life" min="50" max="85" step="1" value="68"
+                                    style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1em;">
+                            </div>
+
+                            <button class="btn" onclick="saveManualRegion()" style="width: 100%;">
+                                💾 Save Region
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Regions List -->
+                <div style="margin-top: 40px;">
+                    <h3 style="color: #4facfe; margin-bottom: 20px;">📊 Your Saved Regions</h3>
+                    <div id="saved-regions-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+                        <div style="background: #e9ecef; padding: 30px; border-radius: 10px; text-align: center; color: #666;">
+                            <p style="font-size: 1.1em;">No custom regions saved yet.</p>
+                            <p style="font-size: 0.9em; margin-top: 10px;">Upload a CSV or enter data manually to create your first region.</p>
                         </div>
                     </div>
                 </div>
@@ -1344,8 +1486,269 @@
             }
         }
 
+        // ========================================
+        // REGIONAL CONFIGURATION FUNCTIONS
+        // ========================================
+
+        // Load custom regions from localStorage
+        function loadCustomRegions() {
+            const regions = localStorage.getItem('customRegions');
+            return regions ? JSON.parse(regions) : {};
+        }
+
+        // Save custom regions to localStorage
+        function saveCustomRegions(regions) {
+            localStorage.setItem('customRegions', JSON.stringify(regions));
+        }
+
+        // Handle CSV file upload
+        function handleCSVUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const text = e.target.result;
+                parseCSV(text);
+            };
+            reader.readAsText(file);
+        }
+
+        // Parse CSV and save regions
+        function parseCSV(text) {
+            const statusDiv = document.getElementById('csv-status');
+            const lines = text.split('\n').filter(line => line.trim());
+
+            if (lines.length < 2) {
+                showStatus('Error: CSV file must contain at least a header and one data row', 'error');
+                return;
+            }
+
+            const header = lines[0].split(',').map(h => h.trim().replace(/['"]/g, ''));
+            const expectedHeaders = ['region_name', 'school', 'disease', 'injury', 'fertility', 'obesity', 'literacy', 'gdp', 'life'];
+
+            // Validate headers
+            const hasAllHeaders = expectedHeaders.every(h => header.includes(h));
+            if (!hasAllHeaders) {
+                showStatus('Error: CSV must have columns: ' + expectedHeaders.join(', '), 'error');
+                return;
+            }
+
+            const customRegions = loadCustomRegions();
+            let savedCount = 0;
+            let errors = [];
+
+            // Parse data rows
+            for (let i = 1; i < lines.length; i++) {
+                const values = lines[i].split(',').map(v => v.trim().replace(/['"]/g, ''));
+                const row = {};
+
+                header.forEach((col, idx) => {
+                    row[col] = values[idx];
+                });
+
+                // Validate required fields
+                if (!row.region_name) {
+                    errors.push(`Row ${i}: Missing region name`);
+                    continue;
+                }
+
+                // Parse numeric values
+                const regionData = {
+                    school: parseFloat(row.school),
+                    disease: parseFloat(row.disease),
+                    injury: parseFloat(row.injury),
+                    fertility: parseFloat(row.fertility),
+                    obesity: parseFloat(row.obesity),
+                    literacy: parseFloat(row.literacy),
+                    gdp: parseFloat(row.gdp),
+                    life: parseFloat(row.life)
+                };
+
+                // Validate ranges
+                if (regionData.school < 30 || regionData.school > 130) {
+                    errors.push(`Row ${i}: School enrollment must be between 30-130%`);
+                    continue;
+                }
+                if (regionData.disease < 10 || regionData.disease > 80) {
+                    errors.push(`Row ${i}: Disease rate must be between 10-80%`);
+                    continue;
+                }
+                if (regionData.fertility < 1 || regionData.fertility > 7) {
+                    errors.push(`Row ${i}: Fertility rate must be between 1-7`);
+                    continue;
+                }
+
+                // Save region
+                customRegions[row.region_name] = regionData;
+                savedCount++;
+            }
+
+            saveCustomRegions(customRegions);
+            updateCountrySelector();
+            displaySavedRegions();
+
+            if (errors.length > 0) {
+                showStatus(`Saved ${savedCount} region(s). Errors: ${errors.join('; ')}`, 'warning');
+            } else {
+                showStatus(`Successfully saved ${savedCount} region(s) from CSV!`, 'success');
+            }
+
+            // Clear file input
+            document.getElementById('csv-upload').value = '';
+        }
+
+        // Save manual region
+        function saveManualRegion() {
+            const regionName = document.getElementById('manual-region-name').value.trim();
+
+            if (!regionName) {
+                showStatus('Please enter a region name', 'error');
+                return;
+            }
+
+            const regionData = {
+                school: parseFloat(document.getElementById('manual-school').value),
+                disease: parseFloat(document.getElementById('manual-disease').value),
+                injury: parseFloat(document.getElementById('manual-injury').value),
+                fertility: parseFloat(document.getElementById('manual-fertility').value),
+                obesity: parseFloat(document.getElementById('manual-obesity').value),
+                literacy: parseFloat(document.getElementById('manual-literacy').value),
+                gdp: parseFloat(document.getElementById('manual-gdp').value),
+                life: parseFloat(document.getElementById('manual-life').value)
+            };
+
+            // Validate data
+            if (Object.values(regionData).some(v => isNaN(v))) {
+                showStatus('Please fill in all numeric fields with valid numbers', 'error');
+                return;
+            }
+
+            const customRegions = loadCustomRegions();
+            customRegions[regionName] = regionData;
+            saveCustomRegions(customRegions);
+
+            updateCountrySelector();
+            displaySavedRegions();
+
+            showStatus(`Region "${regionName}" saved successfully!`, 'success');
+
+            // Clear form
+            document.getElementById('manual-region-name').value = '';
+        }
+
+        // Show status message
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('csv-status');
+            statusDiv.style.display = 'block';
+            statusDiv.textContent = message;
+
+            if (type === 'success') {
+                statusDiv.style.background = '#d4edda';
+                statusDiv.style.color = '#155724';
+                statusDiv.style.border = '1px solid #c3e6cb';
+            } else if (type === 'error') {
+                statusDiv.style.background = '#f8d7da';
+                statusDiv.style.color = '#721c24';
+                statusDiv.style.border = '1px solid #f5c6cb';
+            } else if (type === 'warning') {
+                statusDiv.style.background = '#fff3cd';
+                statusDiv.style.color = '#856404';
+                statusDiv.style.border = '1px solid #ffeeba';
+            }
+
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Update country selector with custom regions
+        function updateCountrySelector() {
+            const selector = document.getElementById('country-select');
+            const customRegions = loadCustomRegions();
+
+            // Remove existing custom options (those not in countryData)
+            const options = Array.from(selector.options);
+            options.forEach(option => {
+                if (option.value && !countryData[option.value] && option.value !== '') {
+                    selector.removeChild(option);
+                }
+            });
+
+            // Add custom regions
+            Object.keys(customRegions).forEach(regionName => {
+                if (!Array.from(selector.options).some(opt => opt.value === regionName)) {
+                    const option = document.createElement('option');
+                    option.value = regionName;
+                    option.textContent = regionName + ' 🌍';
+                    selector.appendChild(option);
+                }
+            });
+
+            // Merge custom regions into countryData for loadCountryData function
+            Object.assign(countryData, customRegions);
+        }
+
+        // Display saved regions
+        function displaySavedRegions() {
+            const customRegions = loadCustomRegions();
+            const container = document.getElementById('saved-regions-list');
+
+            if (Object.keys(customRegions).length === 0) {
+                container.innerHTML = `
+                    <div style="background: #e9ecef; padding: 30px; border-radius: 10px; text-align: center; color: #666;">
+                        <p style="font-size: 1.1em;">No custom regions saved yet.</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Upload a CSV or enter data manually to create your first region.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = Object.entries(customRegions).map(([name, data]) => `
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; position: relative;">
+                    <button onclick="deleteRegion('${name}')"
+                        style="position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 1.2em; display: flex; align-items: center; justify-content: center;"
+                        title="Delete region">×</button>
+                    <h4 style="margin-top: 0; margin-bottom: 15px; font-size: 1.3em;">🌍 ${name}</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                        <div><strong>School:</strong> ${data.school}%</div>
+                        <div><strong>Disease:</strong> ${data.disease}%</div>
+                        <div><strong>Injury:</strong> ${data.injury}%</div>
+                        <div><strong>Fertility:</strong> ${data.fertility}</div>
+                        <div><strong>Obesity:</strong> ${data.obesity}%</div>
+                        <div><strong>Literacy:</strong> ${data.literacy}</div>
+                        <div><strong>GDP:</strong> ${data.gdp >= 0 ? '+' : ''}${data.gdp}%</div>
+                        <div><strong>Life Exp:</strong> ${data.life} yrs</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Delete a region
+        function deleteRegion(regionName) {
+            if (!confirm(`Are you sure you want to delete "${regionName}"?`)) {
+                return;
+            }
+
+            const customRegions = loadCustomRegions();
+            delete customRegions[regionName];
+            saveCustomRegions(customRegions);
+
+            // Remove from countryData
+            delete countryData[regionName];
+
+            updateCountrySelector();
+            displaySavedRegions();
+
+            showStatus(`Region "${regionName}" deleted successfully`, 'success');
+        }
+
         // Initialize on load
-        calculateProjection();
+        window.addEventListener('load', function() {
+            calculateProjection();
+            updateCountrySelector();
+            displaySavedRegions();
+        });
     </script>
 </body>
 </html>
