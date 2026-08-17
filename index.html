@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gender and Economic Development Analysis</title>
     <style>
+        :root {
+            --ink: #16283f;
+            --ink-soft: #3d4f66;
+            --muted: #6b6f76;
+            --accent: #7b2426;
+            --rule: #cfcbc4;
+            --rule-soft: #e4e1db;
+            --paper: #ffffff;
+            --paper-tint: #f7f6f3;
+            --serif: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
+            --sans: 'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,226 +25,264 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: var(--serif);
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--ink);
+            background: #eceae5;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1180px;
             margin: 0 auto;
-            background: white;
+            background: var(--paper);
             min-height: 100vh;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-left: 1px solid var(--rule);
+            border-right: 1px solid var(--rule);
         }
 
         .header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: white;
-            padding: 40px;
+            background: var(--ink);
+            color: #fff;
+            padding: 46px 40px 38px;
             text-align: center;
             position: relative;
+            border-bottom: 3px solid var(--accent);
         }
 
         .header-logos {
             position: absolute;
-            top: 20px;
+            top: 24px;
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
         .header-logos.left {
-            left: 30px;
+            left: 32px;
         }
 
         .header-logos.right {
-            right: 30px;
+            right: 32px;
         }
 
         .header-logos img {
-            height: 60px;
+            height: 56px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
 
         .header h1 {
             margin: 0;
-            font-size: 2.5em;
-            font-weight: 300;
+            font-family: var(--serif);
+            font-size: 2.05em;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            line-height: 1.25;
         }
 
         .header p {
-            margin: 10px 0 0 0;
-            font-size: 1.2em;
-            opacity: 0.9;
+            margin: 12px auto 0;
+            max-width: 62ch;
+            font-family: var(--sans);
+            font-size: 0.92em;
+            font-style: normal;
+            letter-spacing: 0.02em;
+            color: #c8d2de;
         }
 
         /* Tabs */
         .tabs {
             display: flex;
-            background: #f8f9fa;
-            border-bottom: 2px solid #dee2e6;
+            background: var(--paper-tint);
+            border-bottom: 1px solid var(--rule);
             padding: 0 40px;
         }
 
         .tab {
-            padding: 15px 30px;
+            padding: 14px 26px;
             cursor: pointer;
             border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-            font-weight: 500;
-            color: #666;
+            transition: color 0.2s, border-color 0.2s;
+            font-family: var(--sans);
+            font-size: 0.86em;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--muted);
         }
 
         .tab:hover {
-            background: rgba(79, 172, 254, 0.1);
-            color: #4facfe;
+            color: var(--ink);
         }
 
         .tab.active {
-            color: #4facfe;
-            border-bottom-color: #4facfe;
-            background: white;
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+            background: var(--paper);
         }
 
         /* Tab Content */
         .tab-content {
             display: none;
-            padding: 40px;
-            animation: fadeIn 0.3s;
+            padding: 40px 48px 48px;
         }
 
         .tab-content.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Analysis Tab Styles */
+        /* Sections */
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 44px;
         }
 
         .section h2 {
-            color: #4facfe;
-            border-bottom: 2px solid #4facfe;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            font-family: var(--serif);
+            font-size: 1.4em;
+            font-weight: 400;
+            font-variant: small-caps;
+            letter-spacing: 0.03em;
+            color: var(--ink);
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 8px;
+            margin-bottom: 22px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 22px;
             margin-bottom: 30px;
         }
 
         .card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            border-top: 3px solid var(--ink);
+            border-radius: 0;
+            padding: 22px 24px 24px;
         }
 
         .card h3 {
-            color: #333;
+            font-family: var(--serif);
+            color: var(--ink);
             margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 0.01em;
         }
 
         .card p {
-            color: #666;
+            color: var(--ink-soft);
+            font-size: 0.94em;
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            padding: 12px 25px;
+            background: transparent;
+            color: var(--accent);
+            padding: 8px 18px;
             text-decoration: none;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
+            border: 1px solid var(--accent);
+            border-radius: 2px;
+            font-family: var(--sans);
+            font-size: 0.82em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: background 0.2s, color 0.2s;
             cursor: pointer;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+            background: var(--accent);
+            color: #fff;
         }
 
+        /* Summary statistics */
         .stats {
-            background: #e3f2fd;
-            border-radius: 10px;
-            padding: 20px;
+            background: var(--paper-tint);
+            border: 1px solid var(--rule);
+            border-radius: 0;
+            padding: 26px 24px;
             margin-bottom: 30px;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
         }
 
         .stat-item {
             text-align: center;
+            padding: 0 10px;
+            border-left: 1px solid var(--rule-soft);
+        }
+
+        .stat-item:first-child {
+            border-left: none;
         }
 
         .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #1976d2;
+            font-family: var(--serif);
+            font-size: 2.3em;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--ink);
         }
 
         .stat-label {
-            color: #666;
-            font-size: 0.9em;
+            font-family: var(--sans);
+            color: var(--muted);
+            font-size: 0.76em;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            margin-top: 6px;
         }
 
         .badge {
             display: inline-block;
-            background: #4caf50;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.8em;
+            background: transparent;
+            color: #2f6b3f;
+            border: 1px solid #2f6b3f;
+            padding: 2px 8px;
+            border-radius: 2px;
+            font-family: var(--sans);
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            vertical-align: middle;
             margin-left: 10px;
         }
 
         .badge.warning {
-            background: #ff9800;
+            color: #8a5a12;
+            border-color: #8a5a12;
         }
 
-        /* Policy Projection Styles */
+        /* Policy Projection */
         .policy-content {
             display: grid;
             grid-template-columns: 1fr 400px;
-            gap: 30px;
+            gap: 32px;
         }
 
         .controls-panel {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
+            background: var(--paper-tint);
+            border: 1px solid var(--rule);
+            border-radius: 0;
+            padding: 26px;
         }
 
         .control-group {
-            margin-bottom: 25px;
+            margin-bottom: 24px;
         }
 
         .control-label {
@@ -239,12 +290,14 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 8px;
+            font-family: var(--sans);
+            font-size: 0.88em;
             font-weight: 600;
-            color: #333;
+            color: var(--ink);
         }
 
         .control-icon {
-            font-size: 1.3em;
+            font-size: 1.15em;
         }
 
         .slider-container {
@@ -256,135 +309,153 @@
         .slider {
             flex: 1;
             -webkit-appearance: none;
-            height: 8px;
-            border-radius: 5px;
-            background: #ddd;
+            height: 4px;
+            border-radius: 0;
+            background: var(--rule);
             outline: none;
         }
 
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            background: #4facfe;
+            background: var(--ink);
             cursor: pointer;
         }
 
         .slider::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
+            border: none;
             border-radius: 50%;
-            background: #4facfe;
+            background: var(--ink);
             cursor: pointer;
         }
 
         .slider-value {
             min-width: 60px;
             text-align: right;
-            font-weight: bold;
-            color: #4facfe;
+            font-family: var(--sans);
+            font-size: 0.9em;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            color: var(--ink);
         }
 
         .results-panel {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
+            background: var(--paper-tint);
+            border: 1px solid var(--rule);
+            border-radius: 0;
+            padding: 26px;
         }
 
         .result-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: var(--paper);
+            border: 1px solid var(--rule);
+            padding: 18px 20px;
+            border-radius: 0;
+            margin-bottom: 18px;
         }
 
         .result-label {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 5px;
+            font-family: var(--sans);
+            font-size: 0.76em;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
         }
 
         .result-value {
-            font-size: 2em;
-            font-weight: bold;
-            color: #1976d2;
+            font-family: var(--serif);
+            font-size: 1.95em;
+            font-weight: 400;
+            font-variant-numeric: tabular-nums;
+            color: var(--ink);
         }
 
         .impact-indicator {
             display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
+            padding: 3px 12px;
+            border-radius: 2px;
+            font-family: var(--sans);
+            font-size: 0.76em;
             font-weight: 600;
+            letter-spacing: 0.04em;
             margin-top: 10px;
+            border: 1px solid currentColor;
         }
 
         .impact-positive {
-            background: #d4edda;
-            color: #155724;
+            background: transparent;
+            color: #2f6b3f;
         }
 
         .impact-neutral {
-            background: #fff3cd;
-            color: #856404;
+            background: transparent;
+            color: #8a5a12;
         }
 
         .impact-negative {
-            background: #f8d7da;
-            color: #721c24;
+            background: transparent;
+            color: #8c2a24;
         }
 
         .country-selector {
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .country-selector select {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
+            padding: 10px 12px;
+            border: 1px solid var(--rule);
+            border-radius: 2px;
+            font-family: var(--serif);
             font-size: 1em;
-            background: white;
+            color: var(--ink);
+            background: var(--paper);
             cursor: pointer;
-            transition: border-color 0.3s;
+            transition: border-color 0.2s;
         }
 
         .country-selector select:focus {
             outline: none;
-            border-color: #4facfe;
+            border-color: var(--ink);
         }
 
         .subindicator-select {
             width: 100%;
-            padding: 8px 12px;
-            border: 2px solid #dee2e6;
-            border-radius: 6px;
+            padding: 7px 10px;
+            border: 1px solid var(--rule);
+            border-radius: 2px;
+            font-family: var(--serif);
             font-size: 0.9em;
-            background: white;
+            color: var(--ink);
+            background: var(--paper);
             cursor: pointer;
-            transition: border-color 0.3s;
+            transition: border-color 0.2s;
         }
 
         .subindicator-select:focus {
             outline: none;
-            border-color: #4facfe;
+            border-color: var(--ink);
         }
 
         .country-info-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
+            background: var(--ink);
+            color: #fff;
+            padding: 22px;
+            border-radius: 0;
             margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .country-info-card h4 {
-            margin: 0 0 15px 0;
-            font-size: 1.4em;
-            border-bottom: 2px solid rgba(255,255,255,0.3);
+            margin: 0 0 14px 0;
+            font-family: var(--serif);
+            font-size: 1.25em;
+            font-weight: 400;
+            border-bottom: 1px solid rgba(255,255,255,0.28);
             padding-bottom: 10px;
         }
 
@@ -396,27 +467,53 @@
         }
 
         .country-stat {
-            background: rgba(255,255,255,0.1);
-            padding: 10px;
-            border-radius: 6px;
+            background: rgba(255,255,255,0.08);
+            border-left: 2px solid rgba(255,255,255,0.3);
+            padding: 9px 11px;
+            border-radius: 0;
         }
 
         .country-stat-label {
-            font-size: 0.8em;
-            opacity: 0.9;
+            font-family: var(--sans);
+            font-size: 0.72em;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #b9c6d6;
             margin-bottom: 3px;
         }
 
         .country-stat-value {
-            font-size: 1.1em;
-            font-weight: bold;
+            font-size: 1.05em;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
         }
 
         .footer {
-            background: #333;
-            color: white;
+            background: var(--paper-tint);
+            border-top: 1px solid var(--rule);
+            color: var(--muted);
             text-align: center;
-            padding: 20px;
+            font-family: var(--sans);
+            font-size: 0.82em;
+            padding: 22px;
+        }
+
+        @media (max-width: 900px) {
+            .policy-content {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-content {
+                padding: 28px 22px 36px;
+            }
+
+            .header {
+                padding: 96px 22px 30px;
+            }
+
+            .stat-item {
+                border-left: none;
+            }
         }
     </style>
 </head>
@@ -430,26 +527,26 @@
             <div class="header-logos right">
                 <img src="banco.png" alt="World Bank" title="World Bank Data">
             </div>
-            <h1>🌍 Gender and Economic Development Analysis</h1>
+            <h1>Gender and Economic Development Analysis</h1>
             <p>Comprehensive analysis and policy projection models for development</p>
         </div>
 
         <div class="tabs">
             <div class="tab active" onclick="switchTab(0)">
-                📊 Gender and Economic Development Analysis
+                Gender and Economic Development Analysis
             </div>
             <div class="tab" onclick="switchTab(1)">
-                🎯 Gender and Development Policy Projection Models
+                Gender and Development Policy Projection Models
             </div>
             <div class="tab" onclick="switchTab(2)">
-                ⚙️ Regional Configuration
+                Regional Configuration
             </div>
         </div>
 
         <!-- Tab 1: Analysis Results -->
         <div class="tab-content active" id="tab-0">
             <div class="section">
-                <h2>📊 Analysis Summary</h2>
+                <h2>Analysis Summary</h2>
                 <div class="stats">
                     <div class="stats-grid">
                         <div class="stat-item">
@@ -473,41 +570,41 @@
             </div>
 
             <div class="section">
-                <h2>📈 Interactive Dashboards</h2>
+                <h2>Interactive Dashboards</h2>
                 <div class="grid">
                     <div class="card">
-                        <h3>🔍 Descriptive Analysis</h3>
+                        <h3>Descriptive Analysis</h3>
                         <p>Explore basic statistics, distributions, and data quality metrics for all variables.</p>
                         <a href="resultados/dashboards/descriptive_dashboard.html" class="btn" target="_blank">View Dashboard</a>
                     </div>
 
                     <div class="card">
-                        <h3>🔗 Correlation Matrix</h3>
+                        <h3>Correlation Matrix</h3>
                         <p>Interactive heatmap showing correlations between top variables and GDP growth.</p>
                         <a href="resultados/dashboards/correlation_matrix.html" class="btn" target="_blank">View Matrix</a>
                         <span class="badge">NEW</span>
                     </div>
 
                     <div class="card">
-                        <h3>📊 Top Correlations</h3>
+                        <h3>Top Correlations</h3>
                         <p>Bar chart displaying the strongest correlations with economic development.</p>
                         <a href="resultados/dashboards/top_correlations.html" class="btn" target="_blank">View Correlations</a>
                     </div>
 
                     <div class="card">
-                        <h3>📈 Correlation Comparison</h3>
+                        <h3>Correlation Comparison</h3>
                         <p>Compare Pearson vs Spearman correlation coefficients.</p>
                         <a href="resultados/dashboards/pearson_vs_spearman.html" class="btn" target="_blank">View Comparison</a>
                     </div>
 
                     <div class="card">
-                        <h3>🎯 Country Clusters</h3>
+                        <h3>Country Clusters</h3>
                         <p>Visualize country groupings based on gender and development indicators.</p>
                         <a href="resultados/dashboards/clusters_pca.html" class="btn" target="_blank">View Clusters</a>
                     </div>
 
                     <div class="card">
-                        <h3>📉 Cluster Selection</h3>
+                        <h3>Cluster Selection</h3>
                         <p>Analysis of optimal number of clusters using silhouette method.</p>
                         <a href="resultados/dashboards/elbow_method.html" class="btn" target="_blank">View Analysis</a>
                     </div>
@@ -515,29 +612,29 @@
             </div>
 
             <div class="section">
-                <h2>🤖 Machine Learning Results</h2>
+                <h2>Machine Learning Results</h2>
                 <div class="grid">
                     <div class="card">
-                        <h3>⚡ Enhanced ML Comparison</h3>
+                        <h3>Enhanced ML Comparison</h3>
                         <p>Compare performance of advanced ML models with parameter optimization.</p>
                         <a href="resultados/dashboards/enhanced_ml_comparison.html" class="btn" target="_blank">View Comparison</a>
                         <span class="badge">ENHANCED</span>
                     </div>
 
                     <div class="card">
-                        <h3>🎯 Variable Importance</h3>
+                        <h3>Variable Importance</h3>
                         <p>Identify which variables are most important for predicting economic growth.</p>
                         <a href="resultados/dashboards/variable_importance.html" class="btn" target="_blank">View Importance</a>
                     </div>
 
                     <div class="card">
-                        <h3>📊 Predictions vs Reality</h3>
+                        <h3>Predictions vs Reality</h3>
                         <p>Evaluate model accuracy by comparing predictions with actual values.</p>
                         <a href="resultados/dashboards/predictions_vs_real.html" class="btn" target="_blank">View Predictions</a>
                     </div>
 
                     <div class="card">
-                        <h3>📋 Model Performance</h3>
+                        <h3>Model Performance</h3>
                         <div style="margin-top: 15px;">
                             <p><strong>Random Forest:</strong> R² = 0.750 <span class="badge">✓</span></p>
                             <p><strong>Gradient Boosting:</strong> R² = 0.737 <span class="badge warning">⚠</span></p>
@@ -550,29 +647,29 @@
             </div>
 
             <div class="section">
-                <h2>🎯 Final Optimized Models</h2>
+                <h2>Final Optimized Models</h2>
                 <div class="grid">
                     <div class="card">
-                        <h3>🏆 Complete Model Dashboard</h3>
+                        <h3>Complete Model Dashboard</h3>
                         <p>Comprehensive dashboard showing all optimized models with smart parameter tuning results.</p>
                         <a href="resultados/modelos_finales/final_models_dashboard.html" class="btn" target="_blank">View Dashboard</a>
                         <span class="badge">OPTIMIZED</span>
                     </div>
 
                     <div class="card">
-                        <h3>📊 Model Performance</h3>
+                        <h3>Model Performance</h3>
                         <p>Interactive comparison of final optimized model performance and target achievement.</p>
                         <a href="resultados/modelos_finales/final_model_comparison.html" class="btn" target="_blank">View Performance</a>
                     </div>
 
                     <div class="card">
-                        <h3>🔧 Optimization Journey</h3>
+                        <h3>Optimization Journey</h3>
                         <p>Track how each parameter was optimized and which changes improved performance.</p>
                         <a href="resultados/modelos_finales/optimization_journey.html" class="btn" target="_blank">View Journey</a>
                     </div>
 
                     <div class="card">
-                        <h3>🎯 Predictions Analysis</h3>
+                        <h3>Predictions Analysis</h3>
                         <p>Scatter plot analysis of model predictions vs actual values for all optimized models.</p>
                         <a href="resultados/modelos_finales/predictions_vs_reality.html" class="btn" target="_blank">View Analysis</a>
                     </div>
@@ -580,28 +677,28 @@
             </div>
 
             <div class="section">
-                <h2>📄 Data Reports</h2>
+                <h2>Data Reports</h2>
                 <div class="grid">
                     <div class="card">
-                        <h3>📊 Descriptive Statistics</h3>
+                        <h3>Descriptive Statistics</h3>
                         <p>Complete statistical summary of all variables (CSV format).</p>
                         <a href="resultados/reportes/descriptive_statistics.csv" class="btn" target="_blank">Download CSV</a>
                     </div>
 
                     <div class="card">
-                        <h3>🔗 Correlation Table</h3>
+                        <h3>Correlation Table</h3>
                         <p>Complete correlation analysis results for all variables.</p>
                         <a href="resultados/reportes/correlation_table.csv" class="btn" target="_blank">Download CSV</a>
                     </div>
 
                     <div class="card">
-                        <h3>🎯 Cluster Profiles</h3>
+                        <h3>Cluster Profiles</h3>
                         <p>Detailed profiles and characteristics of each country cluster.</p>
                         <a href="resultados/reportes/cluster_profiles.csv" class="btn" target="_blank">Download CSV</a>
                     </div>
 
                     <div class="card">
-                        <h3>📋 Executive Summary</h3>
+                        <h3>Executive Summary</h3>
                         <p>Comprehensive summary of all analysis results and findings.</p>
                         <a href="resultados/reportes/executive_summary.txt" class="btn" target="_blank">View Summary</a>
                     </div>
@@ -609,7 +706,7 @@
             </div>
 
             <div class="section">
-                <h2>🔍 Key Findings</h2>
+                <h2>Key Findings</h2>
                 <div class="stats">
                     <p><strong>🏆 Strongest Correlation:</strong> E_School enrollment, primary, female (% gross) (r = -0.489)</p>
                     <p><strong>🤖 Best ML Model:</strong> Random Forest achieved R² = 0.750</p>
@@ -622,7 +719,7 @@
         <!-- Tab 2: Policy Projection Models -->
         <div class="tab-content" id="tab-1">
             <div class="section">
-                <h2>🎯 Gender and Development Policy Projection Models</h2>
+                <h2>Gender and Development Policy Projection Models</h2>
                 <p style="color: #666; margin-bottom: 30px;">
                     Adjust the significant variables from our model to see their projected impact on GDP growth.
                     Select a country to start with its current values, or use custom settings.
@@ -722,7 +819,7 @@
                             </div>
                         </div>
 
-                        <h3 style="margin-bottom: 20px; color: #4facfe;">Adjust Policy Variables</h3>
+                        <h3 style="margin-bottom: 20px; color: var(--ink);">Adjust Policy Variables</h3>
 
                         <div class="control-group">
                             <div class="control-label">
@@ -852,7 +949,7 @@
                     </div>
 
                     <div class="results-panel">
-                        <h3 style="margin-bottom: 20px; color: #4facfe;">Projected Impact</h3>
+                        <h3 style="margin-bottom: 20px; color: var(--ink);">Projected Impact</h3>
 
                         <div class="result-card">
                             <div class="result-label">Projected GDP Per Capita Growth</div>
@@ -889,7 +986,7 @@
         <!-- Tab 3: Regional Configuration -->
         <div class="tab-content" id="tab-2">
             <div class="section">
-                <h2>⚙️ Regional Configuration</h2>
+                <h2>Regional Configuration</h2>
                 <p style="color: #666; margin-bottom: 30px;">
                     Create custom regional models by uploading data or entering values manually. Your custom regions will be saved locally and appear in the country selector.
                 </p>
@@ -897,7 +994,7 @@
                 <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 30px;">
                     <!-- CSV Upload Section -->
                     <div class="card" style="background: #f8f9fa;">
-                        <h3>📁 Upload CSV Data</h3>
+                        <h3>Upload CSV Data</h3>
                         <p style="margin-bottom: 20px;">Upload a CSV file with your regional data following the format below:</p>
 
                         <div style="background: #e9ecef; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-family: monospace; font-size: 0.85em; overflow-x: auto;">
@@ -923,7 +1020,7 @@
                         <button class="btn" onclick="document.getElementById('csv-upload').click()" style="width: 100%; margin-bottom: 10px;">
                             📤 Choose CSV File
                         </button>
-                        <a href="example_region.csv" download class="btn" style="width: 100%; text-align: center; display: block; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); margin-bottom: 10px; text-decoration: none;">
+                        <a href="example_region.csv" download class="btn" style="width: 100%; text-align: center; display: block; background: var(--ink); border-color: var(--ink); color: #fff; margin-bottom: 10px; text-decoration: none;">
                             📥 Download Example CSV
                         </a>
                         <div id="csv-status" style="margin-top: 10px; padding: 10px; border-radius: 6px; display: none;"></div>
@@ -931,7 +1028,7 @@
 
                     <!-- Manual Entry Section -->
                     <div class="card" style="background: #f8f9fa;">
-                        <h3>✍️ Manual Data Entry</h3>
+                        <h3>Manual Data Entry</h3>
                         <p style="margin-bottom: 20px;">Enter your regional data manually:</p>
 
                         <div style="max-height: 500px; overflow-y: auto; padding-right: 10px;">
@@ -1014,7 +1111,7 @@
 
                 <!-- Saved Regions List -->
                 <div style="margin-top: 40px;">
-                    <h3 style="color: #4facfe; margin-bottom: 20px;">📊 Your Saved Regions</h3>
+                    <h3 style="color: var(--ink); margin-bottom: 20px;">Your Saved Regions</h3>
                     <div id="saved-regions-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
                         <div style="background: #e9ecef; padding: 30px; border-radius: 10px; text-align: center; color: #666;">
                             <p style="font-size: 1.1em;">No custom regions saved yet.</p>
@@ -1294,9 +1391,9 @@
             let html = '';
             Object.keys(grouped).forEach(category => {
                 if (grouped[category].length > 0) {
-                    html += `<h5 style="color: #4facfe; margin-top: 15px; margin-bottom: 8px; font-size: 0.95em;">${category}</h5>`;
+                    html += `<h5 style="color: var(--ink); margin-top: 15px; margin-bottom: 8px; font-size: 0.95em;">${category}</h5>`;
                     grouped[category].forEach(policy => {
-                        html += `<p style="margin-bottom: 10px; padding-left: 10px; border-left: 3px solid #4facfe; font-size: 0.9em; line-height: 1.5;">${policy}</p>`;
+                        html += `<p style="margin-bottom: 10px; padding-left: 10px; border-left: 2px solid var(--accent); font-size: 0.9em; line-height: 1.5;">${policy}</p>`;
                     });
                 }
             });
@@ -1736,11 +1833,11 @@
             }
 
             container.innerHTML = Object.entries(customRegions).map(([name, data]) => `
-                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; position: relative;">
+                <div class="card" style="background: var(--ink); color: white; position: relative;">
                     <button onclick="deleteRegion('${name}')"
                         style="position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 1.2em; display: flex; align-items: center; justify-content: center;"
                         title="Delete region">×</button>
-                    <h4 style="margin-top: 0; margin-bottom: 15px; font-size: 1.3em;">🌍 ${name}</h4>
+                    <h4 style="margin-top: 0; margin-bottom: 15px; font-size: 1.3em;">${name}</h4>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
                         <div><strong>School:</strong> ${data.school}%</div>
                         <div><strong>Disease:</strong> ${data.disease}%</div>
