@@ -45,7 +45,7 @@ The model uses the following significant variables identified through correlatio
 ## 📈 Model Performance
 
 - **Best Model**: Random Forest (R² = 0.750)
-- **Countries Analyzed**: 63 low and lower-middle income countries
+- **Countries Analyzed**: 62 low and lower-middle income countries
 - **Variables**: 129 gender and development indicators
 - **Clusters Identified**: 2 distinct development patterns
 
