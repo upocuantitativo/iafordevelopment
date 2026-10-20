@@ -1,7 +1,7 @@
 # Robustness analyses (Supplementary Code S1)
 
 Code for the revision of manuscript socsci-4597945 (*Social Sciences*, MDPI):
-"Women's Health, Education, and Long-Run Growth in Low- and Lower-Middle-Income Countries: A Predictive Analysis".
+"Predicting Long-Run Income Growth from Women's Indicators in 62 Lower-Income Countries".
 
 ## Run
 
