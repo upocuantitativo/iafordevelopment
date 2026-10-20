@@ -1,0 +1,39 @@
+{
+ "prim": {
+  "n": 62,
+  "median_first_year": 1971.0,
+  "rho_initial_vs_own_slope": [
+   -0.827,
+   1.2724392409526239e-16
+  ],
+  "rho_initial_vs_gdp_slope": [
+   0.524,
+   1.2285845122478647e-05
+  ]
+ },
+ "u5": {
+  "n": 62,
+  "median_first_year": 1960.0,
+  "rho_initial_vs_own_slope": [
+   -0.835,
+   3.2346457270971315e-17
+  ],
+  "rho_initial_vs_gdp_slope": [
+   -0.398,
+   0.0013557921933012042
+  ]
+ },
+ "gdp": {
+  "n": 62,
+  "median_first_year": 1960.0,
+  "rho_initial_vs_own_slope": [
+   0.232,
+   0.06985856135617359
+  ],
+  "rho_initial_vs_gdp_slope": [
+   0.232,
+   0.06985856135617359
+  ]
+ },
+ "gdp_first_level_vs_gdp_slope_note": "same as own slope"
+}

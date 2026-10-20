@@ -1,0 +1,86 @@
+{
+ "n_count_excluded": 32,
+ "n_rate": 96,
+ "evr": [
+  0.1561,
+  0.097,
+  0.0848
+ ],
+ "pc1_load": {
+  "E_School enrollment, primary and secondary (gross), gender parity index (GPI)": 0.212,
+  "E_Literacy rate, youth female (% of females ages 15-24)": 0.207,
+  "E_Primary education, pupils (% female)": 0.204,
+  "E_School enrollment, primary (gross), gender parity index (GPI)": 0.203,
+  "E_School enrollment, secondary (gross), gender parity index (GPI)": 0.202,
+  "E_Primary completion rate, female (% of relevant age group)": 0.201,
+  "E_School enrollment, primary, female (% gross)": 0.2,
+  "E_Secondary education, pupils (% female)": 0.197,
+  "H_Mortality rate, under-5, female (per 1,000 live births)": -0.194,
+  "P_Life expectancy at birth, female (years)": 0.184
+ },
+ "sil": {
+  "2": 0.138,
+  "3": 0.14,
+  "4": 0.134,
+  "5": 0.136,
+  "6": 0.128
+ },
+ "k2": {
+  "sizes": [
+   21,
+   41
+  ],
+  "growth_mean": [
+   41.5,
+   25.1
+  ],
+  "growth_median": [
+   40.0,
+   16.3
+  ],
+  "mw_p": 0.006204768218542782,
+  "members_small": [
+   "Bolivia",
+   "Central African Republic",
+   "Congo, Rep.",
+   "Eswatini",
+   "Honduras",
+   "Jordan",
+   "Kenya",
+   "Kyrgyz Republic",
+   "Lesotho",
+   "Madagascar",
+   "Nicaragua",
+   "Nigeria",
+   "Philippines",
+   "Samoa",
+   "Sri Lanka",
+   "Sudan",
+   "Tajikistan",
+   "Uzbekistan",
+   "Vanuatu",
+   "Zambia",
+   "Zimbabwe"
+  ]
+ },
+ "k3": {
+  "sizes": [
+   1,
+   23,
+   38
+  ],
+  "growth_mean": [
+   18.5,
+   41.6,
+   24.3
+  ],
+  "growth_median": [
+   18.5,
+   40.0,
+   16.0
+  ],
+  "kw_p": 0.009884847406725392
+ },
+ "pc1_growth_spearman": -0.30925939915892325,
+ "pc1_growth_p": 0.014451581140403465
+}

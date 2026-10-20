@@ -1,0 +1,466 @@
+{
+ "n_countries": 62,
+ "n_predictors": 128,
+ "top_corr": [
+  [
+   "E_School enrollment, primary, female (% gross)",
+   -0.489,
+   0.0,
+   -0.558
+  ],
+  [
+   "H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 15-59, female (% of female population ages 15-59)",
+   0.47,
+   0.0,
+   0.465
+  ],
+  [
+   "H_Cause of death, by injury, ages 15-59, female (% of female population ages 15-59)",
+   -0.46,
+   0.0,
+   -0.561
+  ],
+  [
+   "H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 60+, female (% of female population ages 60+)",
+   0.445,
+   0.0,
+   0.413
+  ],
+  [
+   "P_Fertility rate, total (births per woman)",
+   -0.418,
+   0.001,
+   -0.492
+  ],
+  [
+   "H_Prevalence of obesity, female (% of female population ages 18+)",
+   0.414,
+   0.001,
+   0.323
+  ],
+  [
+   "H_Cause of death, by injury, female (% of female population)",
+   -0.385,
+   0.002,
+   -0.606
+  ],
+  [
+   "E_Literacy rate, youth (ages 15-24), gender parity index (GPI)",
+   -0.383,
+   0.002,
+   -0.428
+  ],
+  [
+   "H_Cause of death, by injury, ages 5-14, female (% of female population ages 5-14)",
+   -0.351,
+   0.005,
+   -0.407
+  ],
+  [
+   "E_School enrollment, primary (gross), gender parity index (GPI)",
+   -0.35,
+   0.005,
+   -0.449
+  ],
+  [
+   "E_Primary education, pupils (% female)",
+   -0.333,
+   0.008,
+   -0.44
+  ],
+  [
+   "H_Lifetime risk of maternal death (%)",
+   0.323,
+   0.011,
+   0.515
+  ],
+  [
+   "E_School enrollment, primary and secondary (gross), gender parity index (GPI)",
+   -0.322,
+   0.011,
+   -0.381
+  ],
+  [
+   "E_School enrollment, primary, female (% net)",
+   -0.316,
+   0.012,
+   -0.332
+  ],
+  [
+   "H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, female (% of female population)",
+   0.306,
+   0.016,
+   0.258
+  ]
+ ],
+ "n_sig_p05": 26,
+ "orig_split": {
+  "n_train": 43,
+  "n_test": 19,
+  "test_r2": 0.6891265527200259,
+  "inner_cv_r2": 0.1390725740082529,
+  "params": {
+   "max_depth": null,
+   "min_samples_split": 2,
+   "n_estimators": 200
+  }
+ },
+ "split_r2_distribution": {
+  "mean": 0.3522491383881276,
+  "p5": -0.073980263737896,
+  "p95": 0.6894906238032585,
+  "min": -0.36435836852769676,
+  "max": 0.7814768029218209
+ },
+ "cv_top15": {
+  "Random forest": {
+   "fold_r2_mean": 0.27669159193860343,
+   "fold_r2_sd": 0.5190098556067919,
+   "oof_r2_mean": 0.37941540167869137,
+   "oof_r2_min": 0.28174856885382604,
+   "oof_r2_max": 0.4921941195169055,
+   "mae_mean": 13.317124775873149
+  },
+  "Gradient boosting": {
+   "fold_r2_mean": 0.17716487017947408,
+   "fold_r2_sd": 0.5548095526805619,
+   "oof_r2_mean": 0.29267013205971737,
+   "oof_r2_min": 0.04332220993081304,
+   "oof_r2_max": 0.40883915448045505,
+   "mae_mean": 14.498425121761809
+  },
+  "XGBoost": {
+   "fold_r2_mean": 0.18556680881525495,
+   "fold_r2_sd": 0.525659342591102,
+   "oof_r2_mean": 0.2969274252647297,
+   "oof_r2_min": -0.025088861508480997,
+   "oof_r2_max": 0.4359427834626659,
+   "mae_mean": 14.454838467142872
+  },
+  "SVM (RBF)": {
+   "fold_r2_mean": 0.2527420212863595,
+   "fold_r2_sd": 0.2849294070764282,
+   "oof_r2_mean": 0.23971702588864013,
+   "oof_r2_min": 0.19883765351643656,
+   "oof_r2_max": 0.2823485350078001,
+   "mae_mean": 14.70404981128013
+  },
+  "Neural network (MLP)": {
+   "fold_r2_mean": -1.3466679791628917,
+   "fold_r2_sd": 2.2468535874028146,
+   "oof_r2_mean": -0.8020428825924713,
+   "oof_r2_min": -1.6156281127650982,
+   "oof_r2_max": -0.1265917753313237,
+   "mae_mean": 22.85969323935015
+  },
+  "Ridge regression (linear benchmark)": {
+   "fold_r2_mean": 0.24958698351478506,
+   "fold_r2_sd": 0.30756476903723867,
+   "oof_r2_mean": 0.28771760070996344,
+   "oof_r2_min": 0.21203188158373587,
+   "oof_r2_max": 0.356272753312906,
+   "mae_mean": 14.704678538397632
+  }
+ },
+ "rf_oof_pearson": 0.6475954963612497,
+ "rf_nested": {
+  "mean": 0.29481061243800083,
+  "sd": 0.5117112527635812
+ },
+ "rf_loocv_r2": 0.3750265942325831,
+ "rf_all128": {
+  "mean": 0.2901230376969415,
+  "sd": 0.5018048417607325
+ },
+ "rf_k_sens": {
+  "5": 0.25306868255009696,
+  "10": 0.2769949587964142,
+  "20": 0.22713153968280195,
+  "30": 0.20925590337496713
+ },
+ "rf_drop_extremes": {
+  "mean": 0.39020681686953856,
+  "sd": 0.29253616873112886,
+  "n": 59
+ },
+ "mdi_full_top15": {
+  "H_Cause of death, by injury, ages 15-59, female (% of female population ages 15-59)": 0.4011,
+  "H_Cause of death, by injury, female (% of female population)": 0.1398,
+  "H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 15-59, female (% of female population ages 15-59)": 0.1069,
+  "E_School enrollment, primary, female (% gross)": 0.0628,
+  "H_Lifetime risk of maternal death (%)": 0.0419,
+  "P_Fertility rate, total (births per woman)": 0.0353,
+  "E_School enrollment, primary and secondary (gross), gender parity index (GPI)": 0.0343,
+  "H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 60+, female (% of female population ages 60+)": 0.0322,
+  "E_School enrollment, primary, female (% net)": 0.0296,
+  "H_Cause of death, by injury, ages 5-14, female (% of female population ages 5-14)": 0.0274,
+  "H_Prevalence of obesity, female (% of female population ages 18+)": 0.0272,
+  "E_Literacy rate, youth (ages 15-24), gender parity index (GPI)": 0.0271,
+  "E_Primary education, pupils (% female)": 0.0139,
+  "H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, female (% of female population)": 0.0105,
+  "E_School enrollment, primary (gross), gender parity index (GPI)": 0.0101
+ },
+ "imp_top": [
+  [
+   "H_Cause of death, by injury, ages 15-59, female (% of female population ages 15-59)",
+   1.0,
+   0.4253,
+   0.4253,
+   0.3578
+  ],
+  [
+   "H_Cause of death, by injury, female (% of female population)",
+   0.94,
+   0.0713,
+   0.067,
+   0.1406
+  ],
+  [
+   "H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 15-59, female (% of female population ages 15-59)",
+   0.98,
+   0.0518,
+   0.0507,
+   0.1048
+  ],
+  [
+   "E_School enrollment, primary, female (% gross)",
+   1.0,
+   0.0224,
+   0.0224,
+   0.0714
+  ],
+  [
+   "H_Cause of death, by injury, ages 5-14, female (% of female population ages 5-14)",
+   0.7,
+   0.0145,
+   0.0102,
+   0.0212
+  ],
+  [
+   "E_Literacy rate, youth (ages 15-24), gender parity index (GPI)",
+   0.98,
+   0.0027,
+   0.0026,
+   0.0277
+  ],
+  [
+   "E_School enrollment, primary and secondary (gross), gender parity index (GPI)",
+   0.48,
+   0.0043,
+   0.0021,
+   0.0471
+  ],
+  [
+   "H_Prevalence of overweight, weight for height, female (% of children under 5)",
+   0.12,
+   0.0103,
+   0.0012,
+   0.039
+  ],
+  [
+   "E_School enrollment, secondary, female (% gross)",
+   0.14,
+   0.0074,
+   0.001,
+   0.0379
+  ],
+  [
+   "H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, female (% of female population)",
+   0.38,
+   0.0025,
+   0.001,
+   0.0138
+  ],
+  [
+   "E_Primary education, pupils (% female)",
+   0.58,
+   0.0009,
+   0.0005,
+   0.0158
+  ],
+  [
+   "H_Cause of death, by non-communicable diseases, ages 5-14, female (% of female population ages 5-14)",
+   0.06,
+   0.0069,
+   0.0004,
+   0.0311
+  ],
+  [
+   "E_School enrollment, secondary (gross), gender parity index (GPI)",
+   0.34,
+   0.0009,
+   0.0003,
+   0.0214
+  ],
+  [
+   "H_Cause of death, by non-communicable diseases, ages 0-4, female (% of female population ages 0-4)",
+   0.12,
+   0.001,
+   0.0001,
+   0.0231
+  ],
+  [
+   "H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 5-14, female (% of female population ages 5-14)",
+   0.02,
+   0.0051,
+   0.0001,
+   0.0312
+  ]
+ ],
+ "rank_corr_perm_vs_mdi": 0.07479591836734693,
+ "pca_evr": [
+  0.2039,
+  0.1198,
+  0.0736,
+  0.0665,
+  0.0571,
+  0.0451,
+  0.0364,
+  0.0318,
+  0.0281,
+  0.0266
+ ],
+ "pca_cum10": 0.6890153406215057,
+ "pc1_top_loadings": {
+  "P_Population ages 25-29, female": 0.193,
+  "P_Population ages 20-24, female": 0.193,
+  "P_Population ages 15-64, female": 0.193,
+  "P_Population ages 30-34, female": 0.192,
+  "P_Population, female": 0.192,
+  "P_Population ages 15-19, female": 0.192,
+  "P_Population ages 35-39, female": 0.191,
+  "P_Population ages 40-44, female": 0.19,
+  "P_Population ages 45-49, female": 0.188,
+  "P_Population ages 50-54, female": 0.187
+ },
+ "pc2_top_loadings": {
+  "E_Primary completion rate, female (% of relevant age group)": 0.211,
+  "E_School enrollment, primary and secondary (gross), gender parity index (GPI)": 0.193,
+  "E_Literacy rate, youth female (% of females ages 15-24)": 0.192,
+  "E_School enrollment, primary, female (% gross)": 0.187,
+  "E_School enrollment, secondary (gross), gender parity index (GPI)": 0.187,
+  "E_Primary education, pupils (% female)": 0.183,
+  "H_Mortality rate, under-5, female (per 1,000 live births)": -0.182,
+  "E_School enrollment, primary (gross), gender parity index (GPI)": 0.181,
+  "P_Life expectancy at birth, female (years)": 0.181,
+  "E_Secondary education, pupils (% female)": 0.178
+ },
+ "silhouette_excl_target": {
+  "2": 0.423,
+  "3": 0.144,
+  "4": 0.153,
+  "5": 0.155,
+  "6": 0.138
+ },
+ "wss": {
+  "2": 4218.6,
+  "3": 3684.7,
+  "4": 3331.4,
+  "5": 2987.7,
+  "6": 2782.7
+ },
+ "ari_with_vs_without_target": 1.0,
+ "silhouette_incl_target": {
+  "2": 0.422,
+  "3": 0.144,
+  "4": 0.149,
+  "5": 0.155,
+  "6": 0.102
+ },
+ "cluster_sizes": [
+  6,
+  56
+ ],
+ "cluster_growth_mean": [
+  35.382796497427,
+  30.117784673823184
+ ],
+ "cluster_growth_median": [
+  33.59957616796825,
+  20.196133394061313
+ ],
+ "cluster_mw_p": 0.394228054065783,
+ "cluster_members": {
+  "0": [
+   "Bangladesh",
+   "Egypt, Arab Rep.",
+   "Ethiopia",
+   "Nigeria",
+   "Pakistan",
+   "Philippines"
+  ],
+  "1": [
+   "Afghanistan",
+   "Angola",
+   "Benin",
+   "Bhutan",
+   "Bolivia",
+   "Burkina Faso",
+   "Burundi",
+   "Cambodia",
+   "Cameroon",
+   "Central African Republic",
+   "Chad",
+   "Comoros",
+   "Congo, Dem. Rep.",
+   "Congo, Rep.",
+   "Eritrea",
+   "Eswatini",
+   "Gambia, The",
+   "Ghana",
+   "Guinea",
+   "Guinea-Bissau",
+   "Honduras",
+   "Jordan",
+   "Kenya",
+   "Kyrgyz Republic",
+   "Lao PDR",
+   "Lesotho",
+   "Liberia",
+   "Madagascar",
+   "Malawi",
+   "Mali",
+   "Mauritania",
+   "Morocco",
+   "Mozambique",
+   "Myanmar",
+   "Nepal",
+   "Nicaragua",
+   "Niger",
+   "Papua New Guinea",
+   "Rwanda",
+   "Samoa",
+   "Senegal",
+   "Sierra Leone",
+   "Sri Lanka",
+   "Sudan",
+   "Syrian Arab Republic",
+   "Tajikistan",
+   "Tanzania",
+   "Timor-Leste",
+   "Togo",
+   "Tunisia",
+   "Uganda",
+   "Uzbekistan",
+   "Vanuatu",
+   "Yemen, Rep.",
+   "Zambia",
+   "Zimbabwe"
+  ]
+ },
+ "pc1_growth_spearman": -0.09873838483039964,
+ "boot_ari_k2": {
+  "mean": 0.7523182036616626,
+  "p5": -0.02578427159432746
+ },
+ "k3_growth_means": [
+  43.22590280071248,
+  24.40398959287144,
+  35.382796497427
+ ],
+ "k3_sizes": [
+  17,
+  39,
+  6
+ ]
+}

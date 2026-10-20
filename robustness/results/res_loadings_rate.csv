@@ -1,0 +1,97 @@
+,PC1,PC2,PC3
+"C_Age at first marriage, female",0.1055722247627377,0.10345839840394619,0.03965526792577899
+"C_Contraceptive prevalence, any method (% of married women ages 15-49)",0.12069682101793455,-0.061613317050027816,-0.04860855779623695
+"C_Contraceptive prevalence, any modern method (% of married women ages 15-49)",0.10077657044445293,-0.08939520000284346,-0.0639368137689012
+C_Proportion of seats held by women in national parliaments (%),0.03458139395269781,-0.12650550027277185,-0.018561927346270934
+C_Proportion of women in ministerial level positions (%),0.027776716862081954,-0.09864371324875643,0.055945432739186805
+"C_Rural population, female (% of total)",-0.09607670457537383,-0.027994872371028656,0.01140310606668199
+"C_Total alcohol consumption per capita, female (liters of pure alcohol, projected estimates, female 15+ years of age)",0.02708468568959245,-0.005493991417598987,-0.04399518995203655
+"C_Urban population, female (% of total)",0.09700376902173054,0.017499338783791563,0.019084476501138536
+"E_Adjusted net enrollment rate, primary, female (% of primary school age children)",0.17483226114037412,-0.008372425807558197,-0.05848511411318491
+"E_Expected years of schooling, female",0.17141537072228769,-0.008529402585257207,0.04526656645863519
+"E_Literacy rate, adult female (% of females ages 15 and above)",0.16748277011418602,0.04459845736939926,0.08498565325244642
+"E_Literacy rate, youth (ages 15-24), gender parity index (GPI)",0.18071164756372252,0.08973386233732959,-0.0309085333122993
+"E_Literacy rate, youth female (% of females ages 15-24)",0.20664737735354388,0.027309414928714942,0.033506756723687484
+"E_Lower secondary completion rate, female (% of relevant age group)",0.14154968360839643,-0.031408088645113554,0.04582418518573171
+"E_Primary completion rate, female (% of relevant age group)",0.20051006399321816,0.010869150905714744,-0.019548611440980107
+"E_Primary education, pupils (% female)",0.20405578677557384,0.06344814682649855,0.0430034750072715
+"E_Primary education, teachers (% female)",0.06566576090915059,0.06292095912278903,-0.0016967367501886422
+"E_School enrollment, preprimary, female (% gross)",0.028925788333479186,-0.023359311919064332,-0.05449260865749321
+"E_School enrollment, primary (gross), gender parity index (GPI)",0.20261757717866694,0.07756689594543914,0.05573462015448946
+"E_School enrollment, primary and secondary (gross), gender parity index (GPI)",0.21183036914740466,0.08380216548284913,0.0695443668499454
+"E_School enrollment, primary, female (% gross)",0.19990110204727446,0.0033715955657876886,-0.05253286206152251
+"E_School enrollment, primary, female (% net)",0.17957694517405698,-0.014075383743775063,-0.07167767546563483
+"E_School enrollment, secondary (gross), gender parity index (GPI)",0.20237976071726557,0.087861161292536,0.040076680738512865
+"E_School enrollment, secondary, female (% gross)",0.13048085129020698,-0.044871154523850716,0.06867265568280305
+"E_Secondary education, pupils (% female)",0.19688345637748175,0.08068153830840834,0.032480625465464964
+"E_Secondary education, vocational pupils (% female)",0.07626569477343019,0.016331725730507653,0.009642183468666913
+"E_Vocational and Technical enrolment (% of total secondary enrolment), female",-0.046827630735805065,-0.0060367706480747635,0.049111368300213065
+"E_Youth illiterate population, 15-24 years, % female",0.008500580790997053,0.0254332220102826,-0.0682458764958273
+"H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions (% of total)",-0.14705158613955344,0.10189684885746184,0.17095047222104873
+"H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 0-4, female (% of female population ages 0-4)",-0.028351356850927368,-0.02770173442675216,0.08575128232275894
+"H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 15-59, female (% of female population ages 15-59)",-0.08325450733629093,0.07269941811044224,0.2522399690201041
+"H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 5-14, female (% of female population ages 5-14)",-0.12625590705025846,0.03203849023145839,0.06273137209332229
+"H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, ages 60+, female (% of female population ages 60+)",-0.11820906851101089,0.0946084841347211,0.19913615616725167
+"H_Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions, female (% of female population)",-0.15072923535843408,0.1053465416625455,0.1781780013506153
+"H_Cause of death, by injury, ages 0-4, female (% of female population ages 0-4)",0.03444978670139619,0.22439714101823846,-0.04792695170659311
+"H_Cause of death, by injury, ages 15-59, female (% of female population ages 15-59)",0.04152952684383067,0.21204211612340446,-0.11456743385680264
+"H_Cause of death, by injury, ages 5-14, female (% of female population ages 5-14)",0.09884304651004104,0.07831833787767213,-0.061489737553818063
+"H_Cause of death, by injury, ages 60+, female (% of female population ages 60+)",0.016855632874016254,0.23728882747180624,0.03060948177393512
+"H_Cause of death, by injury, female (% of female population)",0.028545784520116593,0.23679363122862895,-0.0673080316049212
+"H_Cause of death, by non-communicable diseases, ages 0-4, female (% of female population ages 0-4)",-0.0053607088554168845,-0.19438301017821977,-0.03958619334872087
+"H_Cause of death, by non-communicable diseases, ages 15-59, female (% of female population ages 15-59)",0.06358478379858375,-0.19207401316459555,-0.1988359732661988
+"H_Cause of death, by non-communicable diseases, ages 5-14, female (% of female population ages 5-14)",0.0636426040638189,-0.15425375928320417,-0.015088111402216081
+"H_Cause of death, by non-communicable diseases, ages 60+, female (% of female population ages 60+)",0.08370625874933048,-0.2083842374555361,-0.174279336316067
+"H_Cause of death, by non-communicable diseases, female (% of female population)",0.12907843362524987,-0.20410902302854228,-0.13769516840572876
+H_Lifetime risk of maternal death (%),-0.11008174432072408,0.047298251762206533,0.047607885428046656
+"H_Maternal mortality ratio (modeled estimate, per 100,000 live births)",-0.1117866134601017,0.0724729528019913,0.03984832592634381
+"H_Mortality caused by road traffic injury, female (per 100,000 female population)",-0.02120997518602469,-0.004662078773797046,-0.0541485779508385
+"H_Mortality from CVD, cancer, diabetes or CRD between exact ages 30 and 70, female (%)",-0.014243458270601804,0.02117659047046967,-0.10304767229985126
+"H_Mortality rate attributed to unintentional poisoning, female (per 100,000 female population)",-0.05409076266967742,0.05092050466869995,-0.07479991283497983
+"H_Mortality rate, adult, female (per 1,000 female adults)",-0.1396058357485349,-0.036139224583273594,-0.1692072563918198
+"H_Mortality rate, infant, female (per 1,000 live births)",-0.18065188453869843,-0.014179266173420723,-0.025033885753307502
+"H_Mortality rate, under-5, female (per 1,000 live births)",-0.1937176695376311,-0.010324521595504519,-0.012969170652062711
+H_Pregnant women receiving prenatal care (%),0.16899900830758402,0.017358770616726645,0.039672295162443534
+"H_Prevalence of anemia among non-pregnant women (% of women ages 15-49), with Hb<120 g/L",0.008893179292359428,0.049212357899640034,0.09248054101462327
+"H_Prevalence of anemia among pregnant women (any age), with Hb<110 g/L",-0.011489320044680253,0.02337802117641135,0.00827957698471601
+H_Prevalence of anemia among women of reproductive age (% of women ages 15-49),0.008142841862384637,0.0520359928259854,0.09400522849532938
+"H_Prevalence of obesity, female (% of female population ages 18+)",-0.09333178910856636,0.10064798455867235,0.0959937685890379
+"H_Prevalence of overweight, female (% of female adults)",-0.035753549793784846,0.08453430389307388,0.005296825971171483
+"H_Prevalence of overweight, weight for height, female (% of children under 5)",-0.0007602814233381295,0.060612578950681416,0.027248324914607207
+"H_Prevalence of stunting, height for age, female (% of children under 5)",-0.07459470736570334,0.09655953131136544,0.018363283298219058
+"H_Prevalence of underweight, weight for age, female (% of children under 5)",-0.06443293446590358,0.06911808903454315,0.08203164924116799
+"H_Suicide mortality rate, female (per 100,000 female population)",-0.023051844915988592,0.046170633996763556,-0.1225048834524921
+"H_Survival to age 65, female, (% of cohort)",0.15869044293324075,0.03385312152144244,0.1691117797254249
+H_Women's share of population ages 15+ living with HIV (%),0.062022858823988544,0.004918723820686965,-0.10229404444162363
+"L_Cost of business start-up procedures, female (% of GNI per capita)",-0.022685052458479717,-0.005507549771263148,0.08486577808161568
+"L_Employers, female (% of female employment) (modeled ILO estimate)",0.01630327773920281,-0.010068235208526436,-0.02560731894536889
+"L_Employment in agriculture, female (% of female employment) (modeled ILO estimate)",-0.03437480973632881,-0.17472940068300472,0.07954690560011678
+"L_Employment in industry, female (% of female employment) (modeled ILO estimate)",0.06344036542758835,0.021931728088667658,-0.1729830223580246
+"L_Employment in services, female (% of female employment) (modeled ILO estimate)",-0.0036321486121102184,0.18781885907308662,0.02636861539530647
+"L_Employment to population ratio, 15+, female (%) (modeled ILO estimate)",0.024653931328512166,-0.14883210748964773,0.22559781251929917
+"L_Employment to population ratio, ages 15-24, female (%) (modeled ILO estimate)",-0.0032539345102011877,-0.12633284365919184,0.21235012628324612
+"L_Employment to population ratio, ages 15-24, total (%) (modeled ILO estimate)",-0.034081890171281576,-0.15153153149172388,0.15337893012523673
+"L_Labor force participation rate for ages 15-24, female (%) (modeled ILO estimate)",0.014872720251207122,-0.11209471723187228,0.22478813433250258
+"L_Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)",0.03544739395583813,-0.136779562240109,0.230492136779692
+"L_Labor force participation rate, female (% of female population ages 15-64) (modeled ILO estimate)",0.0371852149425697,-0.1373064303442832,0.23079893347813724
+L_Ratio of female to male labor force participation rate (%) (modeled ILO estimate),0.05305257400322979,-0.12779136071658473,0.1800430255919226
+L_Ratio of female to male labor force participation rate (%) (national estimate),0.023057985890647278,-0.00195703427956776,0.07504431713285223
+L_Ratio of female to male youth unemployment rate (% ages 15-24) (modeled ILO estimate),0.031599187577375544,0.031338132834278366,-0.002964294929267389
+"L_Self-employed, female (% of female employment) (modeled ILO estimate)",0.00671778312067428,-0.18708272379453866,0.04727609686886684
+"L_Start-up procedures to register a business, female (number)",0.02640712218455635,-0.07167629423330205,0.03109425048506305
+L_Time required to start a business (days),0.032144535421232544,-0.02308993906243381,0.031151192065484452
+"L_Time required to start a business, female (days)",0.032118593141241894,-0.023063127628687192,0.03113852016231749
+"L_Unemployment, female (% of female labor force) (modeled ILO estimate)",0.06319499537829867,0.17337412626548687,-0.0010841430497697385
+"L_Unemployment, youth female (% of female labor force ages 15-24) (modeled ILO estimate)",0.05617552831602687,0.2082928528306369,0.037548847614788376
+"L_Vulnerable employment, female (% of female employment) (modeled ILO estimate)",0.004279791767156766,-0.18890353234387672,0.05215616396484141
+"L_Wage and salaried workers, female (% of female employment) (modeled ILO estimate)",-0.006717483062808878,0.18708159655290582,-0.04727659150105222
+L_Women Business and the Law Index Score (scale 1-100),-0.0029741170440357153,-0.10842838424192233,-0.15707117967886258
+"L_Women, Business and the Law: Marriage Indicator Score (scale 1-100)",0.046702207327636275,-0.08929306490095495,0.029343331937592084
+"L_Women, Business and the Law: Workplace Indicator Score (scale 1-100)",0.003288841512212343,-0.07501627901025378,-0.11820575909100145
+"P_Adolescent fertility rate (births per 1,000 women ages 15-19)",-0.10928521865017025,-0.009597690310946639,-0.1098299719277405
+P_Female migrants (% of international migrant stock),-0.03170508735029733,0.0316241498482498,0.009584656687339946
+"P_Fertility rate, total (births per woman)",-0.023882770332058254,0.00033136603034709597,-0.09809045355177276
+"P_Life expectancy at age 60, female (years)",0.10484156269814486,0.03079891026383009,0.19636104442198546
+"P_Life expectancy at birth, female (years)",0.18359412479508985,0.023417696722204725,0.1375002529336935
+"P_Population, female (% of total)",0.022175809758058686,-0.006322586804132938,0.10041299304575654
+P_Sex ratio at birth (male births per female births),0.0035613648448405435,0.002227324567105899,0.023042467902633274

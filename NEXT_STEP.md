@@ -31,3 +31,6 @@ está disponible cuando se llama al selector.
   cian, emojis). Si se quieren alineados con el nuevo, aplicar la misma hoja.
 - Quedan emojis en las etiquetas de los sliders (`.control-icon`) y en las recomendaciones que
   genera el JS. Se dejaron a propósito: son iconos funcionales, no decoración de titular.
+
+- **2026-10-20** — Añadida la carpeta `robustness/` (Code S1 de la revisión R1 de socsci-4597945 y sus resultados) y
+  corregido `resultados/reportes/executive_summary.txt`, que aún era la versión de 63 países con la India y R² de una sola partición.

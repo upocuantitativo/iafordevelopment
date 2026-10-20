@@ -133,6 +133,10 @@ This project is developed for academic and research purposes.
 
 Development team focused on gender equality and economic development research.
 
+## 🔁 Robustness analyses (manuscript revision)
+
+`robustness/` holds Supplementary Code S1 for the revision of manuscript socsci-4597945 (*Social Sciences*, MDPI) and its outputs: leakage-free repeated and nested cross-validation, permutation importance, PCA and cluster validation on the 62-country dataset. Run `python robustness/code_S1_robustness.py` from the repository root; details in `robustness/README.md`.
+
 ## 🔗 Resources
 
 - [World Bank Gender Data](https://data.worldbank.org/topic/gender)
